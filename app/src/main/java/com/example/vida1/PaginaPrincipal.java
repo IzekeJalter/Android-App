@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -17,9 +18,12 @@ public class PaginaPrincipal extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pagina_principal);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        getSupportActionBar().hide();
+
         sharedPreferences = getSharedPreferences("sesiones",Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
-        findViewById(R.id.btnCerrarSesion).setOnClickListener(this::cerrarSesion);
+
     }
 
     private void cerrarSesion(View view) {
