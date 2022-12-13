@@ -28,12 +28,19 @@ public class PerfilUser extends AppCompatActivity {
     RequestQueue requestQueue;
     TextView username;
     TextView email;
-    String nombre;
+    TextView nombre;
     TextView apellido;
     TextView edad;
     TextView tel;
+    TextView tarjeta;
     id i;
     String usernames;
+    String emails;
+    String nombres;
+    String apellidos;
+    String edades;
+    String telefonos;
+    String tarjetas;
 
 
 
@@ -66,6 +73,23 @@ public class PerfilUser extends AppCompatActivity {
                try{
                    usernames =response.getJSONObject("data").getString("username");
                    username.setText(usernames);
+
+                   emails=response.getJSONObject("data").getString("email");
+                   email.setText(emails);
+
+                   nombres = response.getJSONObject("data").getString("nombre");
+                   nombre.setText(nombres);
+                   apellidos = response.getJSONObject("data").getString("apellidos");
+                   apellido.setText(apellidos);
+                   edades=response.getJSONObject("data").getString("edad");
+                   edad.setText(edades);
+                   telefonos=response.getJSONObject("data").getString("telefono");
+                   tel.setText(telefonos);
+                   tarjetas= String.valueOf(response.getJSONObject("data").getInt("numero_tarjeta"));
+                   tarjeta.setText(tarjetas);
+
+
+
 
                } catch (Exception e) {
                    e.printStackTrace();
