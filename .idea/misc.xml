@@ -8,9 +8,25 @@
         <entry key="..\:/Users/Margarita/AndroidStudioProjects/VIDA1/app/src/main/res/drawable/fondo.xml" value="0.212" />
         <entry key="..\:/Users/Margarita/AndroidStudioProjects/VIDA1/app/src/main/res/drawable/fondo1.xml" value="0.23" />
         <entry key="..\:/Users/Margarita/AndroidStudioProjects/VIDA1/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/Users/Margarita/AndroidStudioProjects/VIDA1/app/src/main/res/layout/activity_buscar_visitante.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/Margarita/AndroidStudioProjects/VIDA1/app/src/main/res/layout/activity_crear_cuenta.xml" value="0.25" />
+        <entry key="..\:/Users/Margarita/AndroidStudioProjects/VIDA1/app/src/main/res/layout/activity_crear_parque.xml" value="0.25" />
+        <entry key="..\:/Users/Margarita/AndroidStudioProjects/VIDA1/app/src/main/res/layout/activity_editar_parque.xml" value="0.21041666666666667" />
+        <entry key="..\:/Users/Margarita/AndroidStudioProjects/VIDA1/app/src/main/res/layout/activity_editar_perfil.xml" value="0.25" />
+        <entry key="..\:/Users/Margarita/AndroidStudioProjects/VIDA1/app/src/main/res/layout/activity_informacion_parque.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/Margarita/AndroidStudioProjects/VIDA1/app/src/main/res/layout/activity_informacion_sensor.xml" value="0.21041666666666667" />
+        <entry key="..\:/Users/Margarita/AndroidStudioProjects/VIDA1/app/src/main/res/layout/activity_informacion_sensores.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/Margarita/AndroidStudioProjects/VIDA1/app/src/main/res/layout/activity_informacion_visitante.xml" value="0.21041666666666667" />
+        <entry key="..\:/Users/Margarita/AndroidStudioProjects/VIDA1/app/src/main/res/layout/activity_lista_visitas.xml" value="0.17708333333333334" />
         <entry key="..\:/Users/Margarita/AndroidStudioProjects/VIDA1/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/Margarita/AndroidStudioProjects/VIDA1/app/src/main/res/layout/activity_pagina_editar_visita.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/Margarita/AndroidStudioProjects/VIDA1/app/src/main/res/layout/activity_pagina_principal.xml" value="0.25" />
+        <entry key="..\:/Users/Margarita/AndroidStudioProjects/VIDA1/app/src/main/res/layout/activity_pantalla_parques.xml" value="0.21041666666666667" />
+        <entry key="..\:/Users/Margarita/AndroidStudioProjects/VIDA1/app/src/main/res/layout/activity_perfil_user.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/Margarita/AndroidStudioProjects/VIDA1/app/src/main/res/layout/activity_sensor_rueda.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/Margarita/AndroidStudioProjects/VIDA1/app/src/main/res/layout/icnonovisitalista.xml" value="0.2234375" />
+        <entry key="..\:/Users/Margarita/AndroidStudioProjects/VIDA1/app/src/main/res/layout/iconoparquelista.xml" value="0.22447916666666667" />
+        <entry key="..\:/Users/Margarita/AndroidStudioProjects/VIDA1/app/src/main/res/layout/iconosensorlista.xml" value="0.2234375" />
       </map>
     </option>
   </component>
