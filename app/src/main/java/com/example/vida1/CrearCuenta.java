@@ -16,10 +16,9 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.vida1.Singleton.Singleton;
 
 import org.json.JSONObject;
-
-import Singleton.Singleton;
 
 public class CrearCuenta extends AppCompatActivity {
     private RequestQueue requestQueue;

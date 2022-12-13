@@ -1,10 +1,6 @@
 package com.example.vida1;
 
-
-
 import static com.example.vida1.Claseid.id.elnumero;
-
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -20,10 +16,11 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 
+import com.example.vida1.Singleton.Singleton;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import Singleton.Singleton;
 
 public class PerfilUser extends AppCompatActivity {
 
@@ -53,6 +50,7 @@ public class PerfilUser extends AppCompatActivity {
 
 
         String valor=String.valueOf(elnumero);
+
 
        String url="http://25.62.178.77:8000/api/user/"+valor;
         username = findViewById(R.id.TextVerApodo);
