@@ -17,14 +17,15 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".CrearVisitante"
+            android:exported="false" />
+        <activity
             android:name=".verificar_numero"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-            android:name=".SensorRueda"
-            android:exported="false" />
         <activity
             android:name=".InformacionVisitante"
             android:exported="false" />

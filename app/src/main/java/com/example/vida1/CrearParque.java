@@ -8,7 +8,6 @@ import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
-
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -26,9 +25,6 @@ public class CrearParque extends AppCompatActivity {
     private RequestQueue mQueue;
     EditText crearnombre,medialargo,medidaancho,reglas;
 
-    public EditText nombreParque, largoTerreno, anchoTerreno, reglas;
-    public Button btnCrearParque;
-    private RequestQueue requestQueue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
