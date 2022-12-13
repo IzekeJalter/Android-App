@@ -21,7 +21,6 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-
 public class CrearParque extends AppCompatActivity {
     private RequestQueue mQueue;
     EditText crearnombre,medialargo,medidaancho,reglas;
