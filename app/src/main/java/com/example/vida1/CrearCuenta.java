@@ -23,7 +23,7 @@ import org.json.JSONObject;
 public class CrearCuenta extends AppCompatActivity {
     private RequestQueue requestQueue;
 
-    public EditText nombre, apellidos, correo, contraseña, edad, telefono, username;
+        public EditText nombre, apellidos, correo, contraseña, edad, telefono, username;
     public Button btnCrearNewCuenta;
 
     @Override
