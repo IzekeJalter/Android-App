@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
     private RequestQueue requestQueue;
     id il;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,8 +54,6 @@ public class MainActivity extends AppCompatActivity {
         btnIniciarSesion.setOnClickListener(this::IniciarSesion);
         Correo= (EditText) findViewById(R.id.txtCorreo);
         Contraseña = (EditText) findViewById(R.id.txtContraseña);
-
-
 
         inicializarElementos();
 
@@ -78,8 +75,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-
-
 
 
     private boolean resvisarSesion() {
