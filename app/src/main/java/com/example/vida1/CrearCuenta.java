@@ -107,7 +107,9 @@ public class CrearCuenta extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
-                JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, "http://25.62.178.77:8000/api/registroDueño", body, new Response.Listener<JSONObject>() {
+                JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST,
+                        "http://3.133.89.232/api/registroDueño",
+                        body, new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
                         try{
@@ -122,7 +124,7 @@ public class CrearCuenta extends AppCompatActivity {
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(CrearCuenta.this, "Hubo un error al crear la cuenta" +error, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(CrearCuenta.this, "Hubo un error al crear la cuenta: " +error, Toast.LENGTH_SHORT).show();
                     }
                 });
                 requestQueue.add(request);
