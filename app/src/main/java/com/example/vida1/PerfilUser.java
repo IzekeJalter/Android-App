@@ -1,10 +1,6 @@
 package com.example.vida1;
 
-
-
 import static com.example.vida1.Claseid.id.elnumero;
-
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -21,10 +17,11 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.vida1.Claseid.id;
 
+import com.example.vida1.Singleton.Singleton;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import Singleton.Singleton;
 
 public class PerfilUser extends AppCompatActivity {
 
@@ -56,7 +53,12 @@ public class PerfilUser extends AppCompatActivity {
 
         String valor=String.valueOf(elnumero);
 
+<<<<<<< HEAD
        String url="http://3.133.89.232/api/user/"+valor;
+=======
+
+       String url="http://25.62.178.77:8000/api/user/"+valor;
+>>>>>>> 6cac6f3a96c196488be1b5659a8944d48e743922
         username = findViewById(R.id.TextVerApodo);
        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
            @Override

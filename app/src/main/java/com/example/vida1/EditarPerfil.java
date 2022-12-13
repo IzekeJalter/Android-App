@@ -15,12 +15,10 @@ public class EditarPerfil extends AppCompatActivity {
         setContentView(R.layout.activity_editar_perfil);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         getSupportActionBar().hide();
-
         findViewById(R.id.btnregresar).setOnClickListener(this::RegresarPagina);
     }
 
     private void RegresarPagina(View view) {
-
         startActivity(new Intent(getApplicationContext(),PerfilUser.class));
     }
 }

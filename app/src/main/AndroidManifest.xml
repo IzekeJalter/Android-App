@@ -23,6 +23,17 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+            android:name=".SensorRueda"
+            android:exported="false" />
+        <activity
+            android:name=".InformacionVisitante"
+            android:exported="false" />
+        <activity
+            android:name=".PaginaEditarVisita"
+            android:exported="false" />
+        <activity
+            android:name=".ListaVisitas"
+            android:exported="false" />
         <activity
             android:name=".EditarParque"
             android:exported="false" />

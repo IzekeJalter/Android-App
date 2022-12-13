@@ -2,7 +2,6 @@ package com.example.vida1;
 
 import static com.example.vida1.Claseid.id.elnumero;
 
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -23,12 +22,12 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.vida1.Claseid.id;
-import com.google.gson.JsonObject;
+import com.example.vida1.Singleton.Singleton;
+
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import Singleton.Singleton;
 
 public class MainActivity extends AppCompatActivity {
     CheckBox checkBoxGuardar;
@@ -36,10 +35,9 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences.Editor editor;
     Button btnIniciarSesion;
     String llave = "sesion";
-   public  EditText Correo, Contraseña;
+    public  EditText Correo, Contraseña;
     private RequestQueue requestQueue;
     id il;
-
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,7 +99,12 @@ public class MainActivity extends AppCompatActivity {
         guardarSesion(checkBoxGuardar.isChecked());
         revisarcampos();
 
+<<<<<<< HEAD
                 String login =  "http://3.133.89.232/api/login";
+=======
+
+                String login =  "http://25.62.178.77:8000/api/login";
+>>>>>>> 6cac6f3a96c196488be1b5659a8944d48e743922
 
                 JSONObject jsonbody= new JSONObject();
                 try
@@ -144,10 +147,6 @@ elnumero=i;
                 requestQueue.add(request);
 
         };
-
-
-
-
 
     private void guardarSesion(boolean checked) {
         editor.putBoolean(llave,checked);
