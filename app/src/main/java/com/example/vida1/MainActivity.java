@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     public  EditText Correo, Contraseña;
     private RequestQueue requestQueue;
     id il;
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,8 +57,6 @@ public class MainActivity extends AppCompatActivity {
         btnIniciarSesion.setOnClickListener(this::IniciarSesion);
         Correo= (EditText) findViewById(R.id.txtCorreo);
         Contraseña = (EditText) findViewById(R.id.txtContraseña);
-
-
 
         inicializarElementos();
 
@@ -82,8 +80,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-
     private boolean resvisarSesion() {
         boolean sesion =this.sharedPreferences.getBoolean(llave,false);
         return sesion;
@@ -101,8 +97,6 @@ public class MainActivity extends AppCompatActivity {
 
 
                 String login =  "http://3.133.89.232/api/login";
-
-//                String login =  "http://25.62.178.77:8000/api/login";
 
 
                 JSONObject jsonbody= new JSONObject();
