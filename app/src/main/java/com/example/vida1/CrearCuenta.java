@@ -5,71 +5,130 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+
+import org.json.JSONObject;
+
+import Singleton.Singleton;
+
 public class CrearCuenta extends AppCompatActivity {
-    EditText nombre,apellido,email,contraseña,edad,tel,username;
+    private RequestQueue requestQueue;
+
+    public EditText nombre, apellidos, correo, contraseña, edad, telefono, username;
+    public Button btnCrearNewCuenta;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crear_cuenta);
+
         getSupportActionBar().hide();
+
+        requestQueue = Singleton.getInstance(CrearCuenta.this).getRequestQueue();
 
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-        findViewById(R.id.btnregresar).setOnClickListener(this::irPaginalogin);
-        findViewById(R.id.btnCrearNewCuenta).setOnClickListener(this::Iniciarlogin);
-        nombre = findViewById(R.id.EditTextnewNombre);
-        apellido = findViewById(R.id.EditTextnewApellido);
-        email = findViewById(R.id.EditTextnewCorreo);
-        contraseña = findViewById(R.id.EditTextnewContraseña);
-        edad = findViewById(R.id.EditTextnewEdad);
-        tel = findViewById(R.id.EditTextnewTel);
-        username = findViewById(R.id.EditTextnewApodo);
-    }
+        nombre = (EditText) findViewById(R.id.EditTextnewNombre);
+        apellidos = (EditText) findViewById(R.id.EditTextnewApellido);
+        correo = (EditText) findViewById(R.id.EditTextnewCorreo);
+        contraseña = (EditText) findViewById(R.id.EditTextnewContraseña);
+        edad = (EditText) findViewById(R.id.EditTextnewEdad);
+        telefono = (EditText) findViewById(R.id.EditTextnewTel);
+        username = (EditText) findViewById(R.id.EditTextnewApodo);
 
-    private void Iniciarlogin(View view) {
-        Verificarcampos();
-    }
+        btnCrearNewCuenta = (Button) findViewById(R.id.btnCrearNewCuenta);
+        btnCrearNewCuenta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String Nombre= nombre.getText().toString().trim();
+                String Apellido = apellidos.getText().toString().trim();
+                String Correo = correo.getText().toString().trim();
+                String Contraseña = contraseña.getText().toString().trim();
+                String Edad = edad.getText().toString().trim();
+                String Telefono= telefono.getText().toString().trim();
+                String Username = username.getText().toString().trim();
 
-    private void Verificarcampos() {
-        if (nombre.getText().toString().isEmpty()) {
-            Toast.makeText(this, "Campo Nombre necesario.", Toast.LENGTH_SHORT).show();
-        }else {
-            if (apellido.getText().toString().isEmpty()) {
-                Toast.makeText(this, "Campo Apellido necesario.", Toast.LENGTH_SHORT).show();
-            } else {
-                if (email.getText().toString().isEmpty()) {
-                    Toast.makeText(this, "Campo Email necesario.", Toast.LENGTH_SHORT).show();
-                } else {
-                    if (contraseña.getText().toString().isEmpty()) {
-                        Toast.makeText(this, "Campo Contraseña necesaria.", Toast.LENGTH_SHORT).show();
-                    } else {
-                        if (edad.getText().toString().isEmpty()) {
-                            Toast.makeText(this, "Campo Edad necesario.", Toast.LENGTH_SHORT).show();
-                        } else {
-                            if (tel.getText().toString().isEmpty()) {
-                                Toast.makeText(this, "Campo Tel necesario.", Toast.LENGTH_SHORT).show();
-                            } else {
-                                if (username.getText().toString().isEmpty()) {
-                                    Toast.makeText(this, "Campo Username necesario.", Toast.LENGTH_SHORT).show();
-                                } else {
-                                    //aqui ya se reviso que esten todos los datos, registramos y mandamos al logeo
-                                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                                }
-                            }
-                        }
-                    }
+                if(TextUtils.isEmpty(Nombre))
+                {
+                    nombre.setError("El nombre es requerido");
+                    return;
                 }
+                if(TextUtils.isEmpty(Apellido))
+                {
+                    apellidos.setError("Apellidos requeridos");
+                    return;
+                }
+                if(TextUtils.isEmpty(Correo))
+                {
+                    correo.setError("Correo electronico requerido");
+                    return;
+                }
+                if(TextUtils.isEmpty(Contraseña))
+                {
+                    contraseña.setError("Contraseña es requerida");
+                    return;
+                }
+                if(TextUtils.isEmpty(Edad))
+                {
+                    edad.setError("Su edad es requerida");
+                    return;
+                }
+                if(TextUtils.isEmpty(Telefono))
+                {
+                    telefono.setError("Numero telefonico requerido");
+                    return;
+                }
+                if(TextUtils.isEmpty(Username))
+                {
+                    username.setError("Nombre de usuario requerido");
+                    return;
+                }
+
+
+                JSONObject body = new JSONObject();
+                try{
+                    body.put("nombre", nombre.getText());
+                    body.put("apellidos", apellidos.getText());
+                    body.put("email", correo.getText());
+                    body.put("contraseña", contraseña.getText());
+                    body.put("edad", edad.getText());
+                    body.put("telefono", telefono.getText());
+                    body.put("username", username.getText());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, "http://25.62.178.77:8000/api/registroDueño", body, new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try{
+                            Toast.makeText(CrearCuenta.this, "Cuenta creada exitosamente", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(getApplicationContext(),verificar_numero.class));
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(CrearCuenta.this, "Hubo un error al crear la cuenta" +error, Toast.LENGTH_SHORT).show();
+                    }
+                });
+                requestQueue.add(request);
+
             }
-
-        }
-    }
-
-    private void irPaginalogin(View view) {
-        Intent intent = new Intent(getApplicationContext(),MainActivity.class);
-        startActivity(intent);
+        });
     }
 }
