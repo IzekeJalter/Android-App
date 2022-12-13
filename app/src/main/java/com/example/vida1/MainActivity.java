@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -23,8 +24,10 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.example.vida1.Claseid.id;
 import com.example.vida1.Singleton.Singleton;
 
+
 import org.json.JSONException;
 import org.json.JSONObject;
+
 
 public class MainActivity extends AppCompatActivity {
     CheckBox checkBoxGuardar;
@@ -35,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
     public  EditText Correo, Contraseña;
     private RequestQueue requestQueue;
     id il;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -92,53 +94,51 @@ public class MainActivity extends AppCompatActivity {
         guardarSesion(checkBoxGuardar.isChecked());
         revisarcampos();
 
-        String login =  "http://25.62.178.77:8000/api/login";
 
-        JSONObject jsonbody= new JSONObject();
-        try
-        {
-            jsonbody.put("email", Correo.getText());
-            jsonbody.put("contraseña",Contraseña.getText());
-        } catch (JSONException e)
-        {
-            e.printStackTrace();
-        }
-
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, login, jsonbody, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                try {
-
-                    Integer i=Integer.parseInt(response.get("id").toString());
-                    String token=response.get("token").toString();
-
-                    Toast.makeText(MainActivity.this,response.toString(), Toast.LENGTH_SHORT).show();
-
-                    elnumero=i;
+                String login =  "http://3.133.89.232/api/login";
 
 
-                    startActivity(new Intent(getApplicationContext(), PaginaPrincipal.class));
-                } catch (Exception e) {
+                JSONObject jsonbody= new JSONObject();
+                try
+                {
+                    jsonbody.put("email", Correo.getText());
+                    jsonbody.put("contraseña",Contraseña.getText());
+                } catch (JSONException e)
+                {
                     e.printStackTrace();
                 }
 
-            }
+                JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, login, jsonbody, new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
 
-        }, new Response.ErrorListener()
-        {
-            @Override
-            public void onErrorResponse(VolleyError error)
-            {
-                Toast.makeText( MainActivity.this, "Hubo un error al inciar sesion"+error, Toast.LENGTH_SHORT).show();
-            }
-        });
-        requestQueue.add(request);
+                            Integer i=Integer.parseInt(response.get("id").toString());
+                            String token=response.get("token").toString();
 
-    };
+                            Toast.makeText(MainActivity.this,response.toString(), Toast.LENGTH_SHORT).show();
+
+elnumero=i;
 
 
+                            startActivity(new Intent(getApplicationContext(), PaginaPrincipal.class));
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
 
+                    }
 
+                }, new Response.ErrorListener()
+                {
+                    @Override
+                    public void onErrorResponse(VolleyError error)
+                    {
+                        Toast.makeText( MainActivity.this, "Hubo un error al inciar sesion"+error, Toast.LENGTH_SHORT).show();
+                    }
+                });
+                requestQueue.add(request);
+
+        };
 
     private void guardarSesion(boolean checked) {
         editor.putBoolean(llave,checked);

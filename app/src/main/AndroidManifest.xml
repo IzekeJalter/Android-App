@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.vida1">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -12,10 +14,18 @@
         android:roundIcon="@mipmap/logo1"
         android:supportsRtl="true"
         android:theme="@style/Theme.VIDA1"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".SensorRueda"
+            android:name=".CrearVisitante"
             android:exported="false" />
+        <activity
+            android:name=".verificar_numero"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".InformacionVisitante"
             android:exported="false" />

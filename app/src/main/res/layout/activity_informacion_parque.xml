@@ -57,6 +57,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+
         <LinearLayout
             android:id="@+id/DatosParque"
             android:layout_width="match_parent"
@@ -193,6 +194,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/formulario" />
             </LinearLayout>
 
+
                 <LinearLayout
                     android:id="@+id/parque7"
                     android:layout_width="match_parent"
@@ -267,10 +269,13 @@
                         app:layout_constraintTop_toBottomOf="@+id/formulario" />
                 </LinearLayout>
 
+
             <LinearLayout
                 android:id="@+id/parque6"
                 android:layout_width="match_parent"
+
                 android:layout_height="290dp"
+
                 android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -289,7 +294,9 @@
                 <EditText
                     android:id="@+id/TextVerReglasParque"
                     android:layout_width="match_parent"
+
                     android:layout_height="70dp"
+
                     android:layout_marginStart="15dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginEnd="15dp"
@@ -305,7 +312,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="80dp"
+
                     android:layout_marginTop="5dp"
+
                     android:layout_marginEnd="40dp"
                     android:backgroundTint="#E91E63"
                     android:text="Lista Sensores."
@@ -315,6 +324,7 @@
                     app:layout_constraintHorizontal_bias="0.518"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/btnPaginaEditarCuenta" />
+
 
                 <Button
                     android:id="@+id/btnPaginaListaVisitantes"
@@ -331,6 +341,7 @@
                     app:layout_constraintHorizontal_bias="0.512"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/btnPaginaEditarCuenta" />
+
 
 
 
