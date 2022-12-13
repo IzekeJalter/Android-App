@@ -4,7 +4,9 @@
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
     android:radius="10dp"
+
     android:background="#3E13A1"
+
     android:layout_marginTop="10dp"
     android:layout_marginBottom="10dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -16,7 +18,9 @@
         android:layout_height="wrap_content"
         android:radius="10dp"
         android:text="Nombre del Sensor"
+
         android:textColor="@color/white"
+
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -32,7 +36,9 @@
         android:layout_marginBottom="28dp"
         android:radius="10dp"
         android:text="Click para ver informacion."
+
         android:textColor="@color/white"
+
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -44,7 +50,9 @@
         android:id="@+id/imageView"
         android:layout_width="100dp"
         android:layout_height="100dp"
+
         android:layout_marginStart="20dp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
