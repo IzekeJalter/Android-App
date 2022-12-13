@@ -57,7 +57,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-
         <LinearLayout
             android:id="@+id/DatosParque"
             android:layout_width="match_parent"
@@ -194,6 +193,80 @@
                     app:layout_constraintTop_toBottomOf="@+id/formulario" />
             </LinearLayout>
 
+                <LinearLayout
+                    android:id="@+id/parque7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                    <TextView
+                        android:id="@+id/txtCantidaEntradas"
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:hint="Cantidad de entradas del parque: "
+                        android:textAlignment="center"
+                        android:textColorHint="@color/white"
+                        android:textSize="14dp"
+                        app:layout_constraintTop_toBottomOf="@+id/formulario" />
+
+                    <TextView
+                        android:id="@+id/txtCantidadSalidas"
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:hint="Cantidad de salidas del parque: "
+                        android:textAlignment="center"
+                        android:textColorHint="#EFF6F5"
+                        android:textSize="15dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtnewCorreo" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/parque8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                    <TextView
+                        android:id="@+id/EditTextEditarCantidadEntradas"
+                        android:layout_width="140dp"
+                        android:layout_height="45dp"
+                        android:layout_marginStart="15dp"
+                        android:background="@color/purple_200"
+                        android:singleLine="true"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white"
+                        android:textSize="15dp"
+                        app:layout_constraintTop_toBottomOf="@+id/formulario" />
+
+                    <TextView
+                        android:id="@+id/EditTextEditarCantidadSalidas"
+                        android:layout_width="140dp"
+                        android:layout_height="45dp"
+                        android:layout_marginStart="15dp"
+                        android:singleLine="true"
+                        android:background="@color/purple_200"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white"
+                        android:textSize="15dp"
+                        app:layout_constraintTop_toBottomOf="@+id/formulario" />
+                </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/parque6"
                 android:layout_width="match_parent"
@@ -216,7 +289,7 @@
                 <EditText
                     android:id="@+id/TextVerReglasParque"
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
+                    android:layout_height="70dp"
                     android:layout_marginStart="15dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginEnd="15dp"
@@ -232,7 +305,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="80dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginTop="5dp"
                     android:layout_marginEnd="40dp"
                     android:backgroundTint="#E91E63"
                     android:text="Lista Sensores."
