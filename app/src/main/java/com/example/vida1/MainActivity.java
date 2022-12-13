@@ -99,8 +99,12 @@ public class MainActivity extends AppCompatActivity {
         guardarSesion(checkBoxGuardar.isChecked());
         revisarcampos();
 
+<<<<<<< HEAD
+                String login =  "http://3.133.89.232/api/login";
+=======
 
                 String login =  "http://25.62.178.77:8000/api/login";
+>>>>>>> 6cac6f3a96c196488be1b5659a8944d48e743922
 
                 JSONObject jsonbody= new JSONObject();
                 try
