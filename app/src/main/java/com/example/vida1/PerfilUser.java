@@ -19,6 +19,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.vida1.Claseid.id;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -34,6 +35,7 @@ public class PerfilUser extends AppCompatActivity {
     TextView apellido;
     TextView edad;
     TextView tel;
+    id i;
 
 
 
@@ -54,22 +56,11 @@ public class PerfilUser extends AppCompatActivity {
 
         String valor=String.valueOf(elnumero);
 
-       String url="http://25.62.178.77:8000/api/user/"+valor;
+       String url="http://3.133.89.232/api/user/"+valor;
         username = findViewById(R.id.TextVerApodo);
        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
            @Override
            public void onResponse(JSONObject response) {
-
-
-               try {
-                   String token=response.get("username").toString();
-                   nombre=token;
-                   Toast.makeText(PerfilUser.this,response.toString(), Toast.LENGTH_SHORT).show();
-
-
-               } catch (JSONException e) {
-                   e.printStackTrace();
-               }
 
            }
        }, new Response.ErrorListener() {
@@ -80,7 +71,7 @@ public class PerfilUser extends AppCompatActivity {
        });
 
         requestQueue.add(jsonObjectRequest);
-        username.setText(nombre);
+
          }
 
 
