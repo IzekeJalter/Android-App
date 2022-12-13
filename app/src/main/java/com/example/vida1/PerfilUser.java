@@ -64,32 +64,32 @@ public class PerfilUser extends AppCompatActivity {
 
        String url="http://3.133.89.232/api/user/"+valor;
 
-    //   String url="http://25.62.178.77:8000/api/user/"+valor;
-
         username = findViewById(R.id.TextVerApodo);
+        email = findViewById(R.id.TextVerCorreo);
+        nombre = findViewById(R.id.TextVerNombre);
+        apellido = findViewById(R.id.TextVerApellido);
+        edad = findViewById(R.id.TextVerEdad);
+        tel = findViewById(R.id.TextVerTel);
+        tarjeta = findViewById(R.id.TextVerNumerotarjetaDueño);
+
        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
            @Override
            public void onResponse(JSONObject response) {
                try{
                    usernames =response.getJSONObject("data").getString("username");
-                   username.setText(usernames);
-
+                   username.setText("username: "+usernames);
                    emails=response.getJSONObject("data").getString("email");
-                   email.setText(emails);
-
-                   nombres = response.getJSONObject("data").getString("nombre");
-                   nombre.setText(nombres);
+                   email.setText("correo: "+ emails);
+                 nombres = response.getJSONObject("data").getString("nombre");
+                   nombre.setText("nombre: "+nombres);
                    apellidos = response.getJSONObject("data").getString("apellidos");
-                   apellido.setText(apellidos);
+                   apellido.setText("apellidos: "+apellidos);
                    edades=response.getJSONObject("data").getString("edad");
-                   edad.setText(edades);
+                   edad.setText("edad: "+ edades);
                    telefonos=response.getJSONObject("data").getString("telefono");
-                   tel.setText(telefonos);
+                   tel.setText("telefono: "+ telefonos);
                    tarjetas= String.valueOf(response.getJSONObject("data").getInt("numero_tarjeta"));
-                   tarjeta.setText(tarjetas);
-
-
-
+                   tarjeta.setText("tarjeta: " +tarjetas);
 
                } catch (Exception e) {
                    e.printStackTrace();
