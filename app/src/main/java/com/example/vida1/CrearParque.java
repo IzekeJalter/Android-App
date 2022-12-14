@@ -25,7 +25,6 @@ public class CrearParque extends AppCompatActivity {
     private RequestQueue mQueue;
     EditText crearnombre,medialargo,medidaancho,reglas;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +33,8 @@ public class CrearParque extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         crearnombre = findViewById(R.id.EditTextCrearNombreParque);
         medialargo = findViewById(R.id.EditTextCrearLargoTerreno);
-        medidaancho = findViewById(R.id.EditTextCrearReglasParque);
+        medidaancho = findViewById(R.id.EditTextCrearAnchoTerreno);
+        reglas = findViewById(R.id.EditTextCrearReglasParque);
         findViewById(R.id.btnregresar).setOnClickListener(this::RegresarPagina);
         findViewById(R.id.btnCrearParque).setOnClickListener(this::CrearParque1);
         mQueue = Singleton.getInstance(CrearParque.this).getRequestQueue();
@@ -44,10 +44,10 @@ public class CrearParque extends AppCompatActivity {
        // JSONObject parque = new JSONObject();
         JSONObject jBody = new JSONObject();
         try {
-            jBody.put("nombre","Parque1");
+            jBody.put("nombre",""+crearnombre.getText());
             jBody.put("medida_largoTerreno",""+medialargo.getText());
             jBody.put("medida_anchoTerreno",""+medidaancho.getText());
-            jBody.put("reglas",""+crearnombre.getText());
+            jBody.put("reglas",""+reglas.getText());
         } catch (JSONException e) {
             e.printStackTrace();
         }
