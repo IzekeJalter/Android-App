@@ -25,7 +25,6 @@ public class CrearParque extends AppCompatActivity {
     private RequestQueue mQueue;
     EditText crearnombre, medialargo, medidaancho, reglas;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,21 +33,23 @@ public class CrearParque extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         crearnombre = findViewById(R.id.EditTextCrearNombreParque);
         medialargo = findViewById(R.id.EditTextCrearLargoTerreno);
-        medidaancho = findViewById(R.id.EditTextCrearReglasParque);
+        medidaancho = findViewById(R.id.EditTextCrearAnchoTerreno);
+        reglas = findViewById(R.id.EditTextCrearReglasParque);
         findViewById(R.id.btnregresar).setOnClickListener(this::RegresarPagina);
         findViewById(R.id.btnCrearParque).setOnClickListener(this::CrearParque1);
         mQueue = Singleton.getInstance(CrearParque.this).getRequestQueue();
     }
 
     private void CrearParque1(View view) {
-        String ApiAddparque = "http://127.0.0.1:8000/api/addParque";
-        // JSONObject parque = new JSONObject();
+        String ApiAddparque ="http://18.219.177.143/api/addParque";
+       // JSONObject parque = new JSONObject();
         JSONObject jBody = new JSONObject();
         try {
-            jBody.put("nombre", "Parque1");
-            jBody.put("medida_largoTerreno", "" + medialargo.getText());
-            jBody.put("medida_anchoTerreno", "" + medidaancho.getText());
-            jBody.put("reglas", "" + crearnombre.getText());
+            jBody.put("nombre",""+crearnombre.getText());
+            jBody.put("medida_largoTerreno",""+medialargo.getText());
+            jBody.put("medida_anchoTerreno",""+medidaancho.getText());
+            jBody.put("reglas",""+reglas.getText());
+
         } catch (JSONException e) {
             e.printStackTrace();
         }

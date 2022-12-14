@@ -44,7 +44,7 @@ public class CrearCuenta extends AppCompatActivity {
         edad = (EditText) findViewById(R.id.EditTextnewEdad);
         telefono = (EditText) findViewById(R.id.EditTextnewTel);
         username = (EditText) findViewById(R.id.EditTextnewApodo);
-
+        findViewById(R.id.btnregresar).setOnClickListener(this::regresarpagina);
         btnCrearNewCuenta = (Button) findViewById(R.id.btnCrearNewCuenta);
         btnCrearNewCuenta.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,14 +86,13 @@ public class CrearCuenta extends AppCompatActivity {
                     return;
                 }
 
-
                 JSONObject body = new JSONObject();
                 try {
                     body.put("nombre", nombre.getText());
                     body.put("apellidos", apellidos.getText());
+                    body.put("edad", edad.getText());
                     body.put("email", correo.getText());
                     body.put("contraseña", contraseña.getText());
-                    body.put("edad", edad.getText());
                     body.put("telefono", telefono.getText());
                     body.put("username", username.getText());
                 } catch (Exception e) {
@@ -102,10 +101,7 @@ public class CrearCuenta extends AppCompatActivity {
 
                 //JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, "http://3.133.89.232/api/registroDueño", body, new Response.Listener<JSONObject>() {
 
-                JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, "http://3.133.89.232/api/registroDueño",
-
-
-                        body, new Response.Listener<JSONObject>() {
+                JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, "http://18.219.177.143/api/registroDueno", body, new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {
@@ -128,5 +124,10 @@ public class CrearCuenta extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void regresarpagina(View view) {
+        Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+        startActivity(intent);
     }
 }
