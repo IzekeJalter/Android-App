@@ -1,7 +1,7 @@
 package com.example.vida1;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import static com.example.vida1.Claseid.id.ip_final;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -41,7 +41,7 @@ public class CrearParque extends AppCompatActivity {
     }
 
     private void CrearParque1(View view) {
-        String ApiAddparque ="http://18.219.177.143/api/anadirparque/3";
+        String ApiAddparque = ip_final + "/api/anadirparque/3";
        // JSONObject parque = new JSONObject();
         JSONObject jBody = new JSONObject();
         try {

@@ -1,5 +1,7 @@
 package com.example.vida1;
 
+import static com.example.vida1.Claseid.id.ip_final;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -31,7 +33,7 @@ public class InformacionParque extends AppCompatActivity {
     }
 
     private void getinfo() {
-        String URL = "http://18.219.177.143/api/parque/3/" + id;
+        String URL = ip_final + "/api/parque/3/" + id;
 
     }
 }

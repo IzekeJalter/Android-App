@@ -1,5 +1,7 @@
 package com.example.vida1;
 
+import static com.example.vida1.Claseid.id.ip_final;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -36,7 +38,7 @@ public class PantallaParques extends AppCompatActivity {
         jsrespons();
     }
     private void jsrespons() {
-        String url ="http://18.219.177.143/api/parques/3";
+        String url = ip_final + "/api/parques/3";
         final RecyclerView rvParque = findViewById(R.id.RclistaParque);
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
