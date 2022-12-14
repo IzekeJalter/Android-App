@@ -1,6 +1,7 @@
 package com.example.vida1.Modelos;
 
 public class parque {
+    private String id;
     private String nombre;
     private String dueño_id;
     private String reglas;
@@ -8,8 +9,12 @@ public class parque {
     private String medida_anchoTerreno;
     private String cantidad_entradas;
     private String cantidad_salidas;
+    private String status;
+    private String created_at;
+    private String updated_at;
 
-    public parque (String nombre,  String dueño_id, String reglas, String medida_largoTerreno, String medida_anchoTerreno,String cantidad_entradas, String cantidad_salidas){
+    public parque(String id, String nombre, String dueño_id, String reglas, String medida_largoTerreno, String medida_anchoTerreno, String cantidad_entradas, String cantidad_salidas, String status, String created_at, String updated_at) {
+        this.id = id;
         this.nombre = nombre;
         this.dueño_id = dueño_id;
         this.reglas = reglas;
@@ -17,6 +22,17 @@ public class parque {
         this.medida_anchoTerreno = medida_anchoTerreno;
         this.cantidad_entradas = cantidad_entradas;
         this.cantidad_salidas = cantidad_salidas;
+        this.status = status;
+        this.created_at = created_at;
+        this.updated_at = updated_at;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getNombre() {
@@ -73,5 +89,33 @@ public class parque {
 
     public void setCantidad_salidas(String cantidad_salidas) {
         this.cantidad_salidas = cantidad_salidas;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(String created_at) {
+        this.created_at = created_at;
+    }
+
+    public String getUpdated_at() {
+        return updated_at;
+    }
+
+    public void setUpdated_at(String updated_at) {
+        this.updated_at = updated_at;
+    }
+
+    public String getClickpor(){
+        return "Click para ver informacion.";
     }
 }
