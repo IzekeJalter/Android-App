@@ -52,17 +52,12 @@ public class CrearParque extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-/* try {
-            JSONObject parque1 = parque.put("Parque",jBody);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-*/
+
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, ApiAddparque, jBody, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_SHORT).show();
-                Toast.makeText(getApplicationContext(), "Se ah creado tu parque ", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Se ha creado tu parque ", Toast.LENGTH_SHORT).show();
             }
 
         }, new Response.ErrorListener() {

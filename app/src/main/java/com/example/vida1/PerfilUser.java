@@ -1,6 +1,7 @@
 package com.example.vida1;
 
 import static com.example.vida1.Claseid.id.elnumero;
+import static com.example.vida1.Claseid.id.n_tarjeta;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -27,21 +28,10 @@ import org.json.JSONObject;
 public class PerfilUser extends AppCompatActivity {
 
     RequestQueue requestQueue;
-    TextView username;
-    TextView email;
-    TextView nombre;
-    TextView apellido;
-    TextView edad;
-    TextView tel;
-    TextView tarjeta;
+    TextView username, email, nombre, apellido, edad, tel, tarjeta;
     id i;
-    String usernames;
-    String emails;
-    String nombres;
-    String apellidos;
-    String edades;
-    String telefonos;
-    String tarjetas;
+    String usernames, emails, nombres, apellidos, edades, telefonos, tarjetas;
+
 
 
     @Override
@@ -60,6 +50,7 @@ public class PerfilUser extends AppCompatActivity {
 
 
         String valor = String.valueOf(elnumero);
+        String ntarjeta = String.valueOf(n_tarjeta);
 
 
         String url = "http://3.133.89.232/api/user/" + valor;
@@ -90,7 +81,7 @@ public class PerfilUser extends AppCompatActivity {
                    telefonos=response.getJSONObject("data").getString("telefono");
                    tel.setText("telefono: "+ telefonos);
                    tarjetas= String.valueOf(response.getJSONObject("data").getInt("numero_tarjeta"));
-                   tarjeta.setText("tarjeta: " +tarjetas);
+                   tarjeta.setText("tarjeta: " + tarjetas);
 
                } catch (Exception e) {
                    e.printStackTrace();
