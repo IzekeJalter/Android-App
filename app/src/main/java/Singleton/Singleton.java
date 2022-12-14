@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
 public class Singleton {
@@ -38,6 +39,7 @@ public class Singleton {
     public <T> void addToRequestQueue(Request<T> request) {
         getRequestQueue().add(request);
     }
+
 
 }
 
