@@ -103,9 +103,7 @@ public class PerfilUser extends AppCompatActivity {
                Toast.makeText( PerfilUser.this, "Hubo un error al inciar sesion"+error, Toast.LENGTH_SHORT).show();
            }
        });
-
         requestQueue.add(jsonObjectRequest);
-
          }
 
 
