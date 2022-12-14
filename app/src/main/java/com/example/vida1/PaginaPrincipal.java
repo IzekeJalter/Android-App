@@ -25,27 +25,25 @@ public class PaginaPrincipal extends AppCompatActivity {
         findViewById(R.id.btnVerParques).setOnClickListener(this::VerParquesPagina);
         findViewById(R.id.btnVerPerfil).setOnClickListener(this::VerPerfilPagina);
 
-        sharedPreferences = getSharedPreferences("sesiones",Context.MODE_PRIVATE);
+        sharedPreferences = getSharedPreferences("sesiones", Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
-
-
     }
 
     private void VerPerfilPagina(View view) {
-        startActivity(new Intent(getApplicationContext(),PerfilUser.class));
+        startActivity(new Intent(getApplicationContext(), PerfilUser.class));
     }
 
     private void VerParquesPagina(View view) {
-        startActivity(new Intent(getApplicationContext(),PantallaParques.class));
+        startActivity(new Intent(getApplicationContext(), PantallaParques.class));
     }
 
     private void paginaCrearParque(View view) {
-        startActivity(new Intent(getApplicationContext(),CrearParque.class));
+        startActivity(new Intent(getApplicationContext(), CrearParque.class));
     }
 
     private void cerrarSesion(View view) {
-        editor.putBoolean("sesion",false);
+        editor.putBoolean("sesion", false);
         editor.apply();
-        Toast.makeText( this,"La sesion fue cerrada.", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "La sesion fue cerrada.", Toast.LENGTH_SHORT).show();
     }
 }

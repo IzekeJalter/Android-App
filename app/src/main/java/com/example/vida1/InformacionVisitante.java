@@ -25,7 +25,7 @@ public class InformacionVisitante extends AppCompatActivity {
 
     }
 
-    public void solicitarInfo(){
+    public void solicitarInfo() {
         String URL = "http://127.0.0.1:8000/api/traevisitante/3";
     }
 }

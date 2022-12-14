@@ -19,6 +19,6 @@ public class EditarPerfil extends AppCompatActivity {
     }
 
     private void RegresarPagina(View view) {
-        startActivity(new Intent(getApplicationContext(),PerfilUser.class));
+        startActivity(new Intent(getApplicationContext(), PerfilUser.class));
     }
 }
