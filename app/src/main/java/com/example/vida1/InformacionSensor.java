@@ -13,5 +13,6 @@ public class InformacionSensor extends AppCompatActivity {
         setContentView(R.layout.activity_informacion_sensor);
         getSupportActionBar().hide();
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
     }
 }

@@ -31,9 +31,12 @@
         <entry key="..\:/Users/Rgasca/AndroidStudioProjects/proyecto/VIDA1/app/src/main/res/layout/activity_crear_cuenta.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Rgasca/AndroidStudioProjects/proyecto/VIDA1/app/src/main/res/layout/activity_crear_parque.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Rgasca/AndroidStudioProjects/proyecto/VIDA1/app/src/main/res/layout/activity_crear_visitante.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Rgasca/AndroidStudioProjects/proyecto/VIDA1/app/src/main/res/layout/activity_editar_parque.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Rgasca/AndroidStudioProjects/proyecto/VIDA1/app/src/main/res/layout/activity_editar_perfil.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Rgasca/AndroidStudioProjects/proyecto/VIDA1/app/src/main/res/layout/activity_informacion_parque.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Rgasca/AndroidStudioProjects/proyecto/VIDA1/app/src/main/res/layout/activity_informacion_sensor.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Rgasca/AndroidStudioProjects/proyecto/VIDA1/app/src/main/res/layout/activity_informacion_sensores.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Rgasca/AndroidStudioProjects/proyecto/VIDA1/app/src/main/res/layout/activity_informacion_visitante.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Rgasca/AndroidStudioProjects/proyecto/VIDA1/app/src/main/res/layout/activity_lista_visitas.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Rgasca/AndroidStudioProjects/proyecto/VIDA1/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Rgasca/AndroidStudioProjects/proyecto/VIDA1/app/src/main/res/layout/activity_pagina_editar_visita.xml" value="0.20416666666666666" />
@@ -41,6 +44,7 @@
         <entry key="..\:/Users/Rgasca/AndroidStudioProjects/proyecto/VIDA1/app/src/main/res/layout/activity_pantalla_parques.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Rgasca/AndroidStudioProjects/proyecto/VIDA1/app/src/main/res/layout/activity_perfil_user.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/Rgasca/AndroidStudioProjects/proyecto/VIDA1/app/src/main/res/layout/activity_sensor_rueda.xml" value="0.2" />
+        <entry key="..\:/Users/Rgasca/AndroidStudioProjects/proyecto/VIDA1/app/src/main/res/layout/recyclerviewvisitantes.xml" value="0.20416666666666666" />
       </map>
     </option>
   </component>
