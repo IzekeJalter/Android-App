@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences.Editor editor;
     Button btnIniciarSesion;
     String llave = "sesion";
-    public  EditText Correo, Contraseña;
+    public EditText Correo, Contraseña;
     private RequestQueue requestQueue;
     id il;
 
@@ -55,39 +55,40 @@ public class MainActivity extends AppCompatActivity {
 
         btnIniciarSesion = (Button) findViewById(R.id.btnIniciarSesion);
         btnIniciarSesion.setOnClickListener(this::IniciarSesion);
-        Correo= (EditText) findViewById(R.id.txtCorreo);
+        Correo = (EditText) findViewById(R.id.txtCorreo);
         Contraseña = (EditText) findViewById(R.id.txtContraseña);
 
         inicializarElementos();
 
-        if (resvisarSesion()){
-            startActivity(new Intent(this,PaginaPrincipal.class));
-        }else{
-            String mensaje= "Inicia sesion";
+        if (resvisarSesion()) {
+            startActivity(new Intent(this, PaginaPrincipal.class));
+        } else {
+            String mensaje = "Inicia sesion";
             Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show();
         }
     }
+
     private void revisarcampos() {
         if (Correo.getText().toString().isEmpty()) {
             Toast.makeText(this, "Correo Nesesario", Toast.LENGTH_SHORT).show();
-        }else{
+        } else {
             if (Contraseña.getText().toString().isEmpty()) {
                 Toast.makeText(this, "Contraseña Necesaria", Toast.LENGTH_SHORT).show();
-            }else{
-                startActivity(new Intent(getApplicationContext(),PaginaPrincipal.class));
+            } else {
+                startActivity(new Intent(getApplicationContext(), PaginaPrincipal.class));
             }
         }
     }
 
 
     private boolean resvisarSesion() {
-        boolean sesion =this.sharedPreferences.getBoolean(llave,false);
+        boolean sesion = this.sharedPreferences.getBoolean(llave, false);
         return sesion;
     }
 
     private void inicializarElementos() {
-        sharedPreferences = this.getSharedPreferences("sesiones",Context.MODE_PRIVATE);
-        editor= sharedPreferences.edit();
+        sharedPreferences = this.getSharedPreferences("sesiones", Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
     }
 
     private void IniciarSesion(View view) {
@@ -96,58 +97,56 @@ public class MainActivity extends AppCompatActivity {
         revisarcampos();
 
 
-                String login =  "http://3.133.89.232/api/login";
+        String login = "http://3.133.89.232/api/login";
 
 
-                JSONObject jsonbody= new JSONObject();
-                try
-                {
-                    jsonbody.put("email", Correo.getText());
-                    jsonbody.put("contraseña",Contraseña.getText());
-                } catch (JSONException e)
-                {
+        JSONObject jsonbody = new JSONObject();
+        try {
+            jsonbody.put("email", Correo.getText());
+            jsonbody.put("contraseña", Contraseña.getText());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, login, jsonbody, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                try {
+
+                    Integer i = Integer.parseInt(response.get("id").toString());
+                    String token = response.get("token").toString();
+
+                    Toast.makeText(MainActivity.this, response.toString(), Toast.LENGTH_SHORT).show();
+
+                    elnumero = i;
+
+
+                    startActivity(new Intent(getApplicationContext(), PaginaPrincipal.class));
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
 
-                JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, login, jsonbody, new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        try {
+            }
 
-                            Integer i=Integer.parseInt(response.get("id").toString());
-                            String token=response.get("token").toString();
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(MainActivity.this, "Hubo un error al inciar sesion" + error, Toast.LENGTH_SHORT).show();
+            }
+        });
+        requestQueue.add(request);
 
-                            Toast.makeText(MainActivity.this,response.toString(), Toast.LENGTH_SHORT).show();
+    }
 
-elnumero=i;
-
-
-                            startActivity(new Intent(getApplicationContext(), PaginaPrincipal.class));
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-
-                    }
-
-                }, new Response.ErrorListener()
-                {
-                    @Override
-                    public void onErrorResponse(VolleyError error)
-                    {
-                        Toast.makeText( MainActivity.this, "Hubo un error al inciar sesion"+error, Toast.LENGTH_SHORT).show();
-                    }
-                });
-                requestQueue.add(request);
-
-        };
+    ;
 
     private void guardarSesion(boolean checked) {
-        editor.putBoolean(llave,checked);
-        editor.putString("contraseña","615243");
+        editor.putBoolean(llave, checked);
+        editor.putString("contraseña", "615243");
         editor.apply();
     }
 
     private void irPaginaCrearCuenta(View view) {
-        startActivity(new Intent(getApplicationContext(),CrearCuenta.class));
+        startActivity(new Intent(getApplicationContext(), CrearCuenta.class));
     }
 }
