@@ -72,41 +72,40 @@ public class PerfilUser extends AppCompatActivity {
         tel = findViewById(R.id.TextVerTel);
         tarjeta = findViewById(R.id.TextVerNumerotarjetaDueño);
 
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                try {
-                    usernames = response.getJSONObject("data").getString("username");
-                    username.setText("username: " + usernames);
-                    emails = response.getJSONObject("data").getString("email");
-                    email.setText("correo: " + emails);
-                    nombres = response.getJSONObject("data").getString("nombre");
-                    nombre.setText("nombre: " + nombres);
-                    apellidos = response.getJSONObject("data").getString("apellidos");
-                    apellido.setText("apellidos: " + apellidos);
-                    edades = response.getJSONObject("data").getString("edad");
-                    edad.setText("edad: " + edades);
-                    telefonos = response.getJSONObject("data").getString("telefono");
-                    tel.setText("telefono: " + telefonos);
-                    tarjetas = String.valueOf(response.getJSONObject("data").getInt("numero_tarjeta"));
-                    tarjeta.setText("tarjeta: " + tarjetas);
 
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+       JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+           @Override
+           public void onResponse(JSONObject response) {
+               try{
+                   usernames =response.getJSONObject("data").getString("username");
+                   username.setText("username: "+usernames);
+                   emails=response.getJSONObject("data").getString("email");
+                   email.setText("correo: "+ emails);
+                 nombres = response.getJSONObject("data").getString("nombre");
+                   nombre.setText("nombre: "+nombres);
+                   apellidos = response.getJSONObject("data").getString("apellidos");
+                   apellido.setText("apellidos: "+apellidos);
+                   edades=response.getJSONObject("data").getString("edad");
+                   edad.setText("edad: "+ edades);
+                   telefonos=response.getJSONObject("data").getString("telefono");
+                   tel.setText("telefono: "+ telefonos);
+                   tarjetas= String.valueOf(response.getJSONObject("data").getInt("numero_tarjeta"));
+                   tarjeta.setText("tarjeta: " +tarjetas);
+
+               } catch (Exception e) {
+                   e.printStackTrace();
+               }
 
 
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(PerfilUser.this, "Hubo un error al inciar sesion" + error, Toast.LENGTH_SHORT).show();
-            }
-        });
-
+           }
+       }, new Response.ErrorListener() {
+           @Override
+           public void onErrorResponse(VolleyError error) {
+               Toast.makeText( PerfilUser.this, "Hubo un error al inciar sesion"+error, Toast.LENGTH_SHORT).show();
+           }
+       });
         requestQueue.add(jsonObjectRequest);
-
-    }
+         }
 
 
     private void CerrarSesion(View view) {
