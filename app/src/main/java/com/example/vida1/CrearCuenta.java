@@ -23,7 +23,7 @@ import org.json.JSONObject;
 public class CrearCuenta extends AppCompatActivity {
     private RequestQueue requestQueue;
 
-        public EditText nombre, apellidos, correo, contraseña, edad, telefono, username;
+    public EditText nombre, apellidos, correo, contraseña, edad, telefono, username;
     public Button btnCrearNewCuenta;
 
     @Override
@@ -49,53 +49,46 @@ public class CrearCuenta extends AppCompatActivity {
         btnCrearNewCuenta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String Nombre= nombre.getText().toString().trim();
+                String Nombre = nombre.getText().toString().trim();
                 String Apellido = apellidos.getText().toString().trim();
                 String Correo = correo.getText().toString().trim();
                 String Contraseña = contraseña.getText().toString().trim();
                 String Edad = edad.getText().toString().trim();
-                String Telefono= telefono.getText().toString().trim();
+                String Telefono = telefono.getText().toString().trim();
                 String Username = username.getText().toString().trim();
 
-                if(TextUtils.isEmpty(Nombre))
-                {
+                if (TextUtils.isEmpty(Nombre)) {
                     nombre.setError("El nombre es requerido");
                     return;
                 }
-                if(TextUtils.isEmpty(Apellido))
-                {
+                if (TextUtils.isEmpty(Apellido)) {
                     apellidos.setError("Apellidos requeridos");
                     return;
                 }
-                if(TextUtils.isEmpty(Correo))
-                {
+                if (TextUtils.isEmpty(Correo)) {
                     correo.setError("Correo electronico requerido");
                     return;
                 }
-                if(TextUtils.isEmpty(Contraseña))
-                {
+                if (TextUtils.isEmpty(Contraseña)) {
                     contraseña.setError("Contraseña es requerida");
                     return;
                 }
-                if(TextUtils.isEmpty(Edad))
-                {
+                if (TextUtils.isEmpty(Edad)) {
                     edad.setError("Su edad es requerida");
                     return;
                 }
-                if(TextUtils.isEmpty(Telefono))
-                {
+                if (TextUtils.isEmpty(Telefono)) {
                     telefono.setError("Numero telefonico requerido");
                     return;
                 }
-                if(TextUtils.isEmpty(Username))
-                {
+                if (TextUtils.isEmpty(Username)) {
                     username.setError("Nombre de usuario requerido");
                     return;
                 }
 
 
                 JSONObject body = new JSONObject();
-                try{
+                try {
                     body.put("nombre", nombre.getText());
                     body.put("apellidos", apellidos.getText());
                     body.put("email", correo.getText());
@@ -116,9 +109,9 @@ public class CrearCuenta extends AppCompatActivity {
 
                     @Override
                     public void onResponse(JSONObject response) {
-                        try{
+                        try {
                             Toast.makeText(CrearCuenta.this, "Cuenta creada exitosamente", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(),verificar_numero.class));
+                            startActivity(new Intent(getApplicationContext(), verificar_numero.class));
 
                         } catch (Exception e) {
                             e.printStackTrace();
@@ -128,7 +121,7 @@ public class CrearCuenta extends AppCompatActivity {
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(CrearCuenta.this, "Hubo un error al crear la cuenta: " +error, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(CrearCuenta.this, "Hubo un error al crear la cuenta: " + error, Toast.LENGTH_SHORT).show();
                     }
                 });
                 requestQueue.add(request);

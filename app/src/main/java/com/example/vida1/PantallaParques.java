@@ -19,6 +19,6 @@ public class PantallaParques extends AppCompatActivity {
     }
 
     private void RegresarPagina(View view) {
-        startActivity(new Intent(getApplicationContext(),PaginaPrincipal.class));
+        startActivity(new Intent(getApplicationContext(), PaginaPrincipal.class));
     }
 }

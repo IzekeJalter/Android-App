@@ -89,34 +89,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent">
-
-                    <TextView
-                        android:id="@+id/txtVerNombreSensor"
-                        android:layout_width="250dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
-                        android:layout_marginStart="10dp"
-                        android:hint="Nombre:"
-                        android:textColorHint="#FFFFFF"
-                        android:textSize="15dp" />
-
-                    <TextView
-                        android:id="@+id/TextVerNombreSensor"
-                        android:layout_width="match_parent"
-                        android:layout_height="45dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="15dp"
-                        android:layout_marginEnd="15dp"
-                        android:background="@color/purple_200"
-                        android:singleLine="true"
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textColorHint="@color/black"
-                        android:textSize="15dp" />
-
-
-                </LinearLayout>
+                    app:layout_constraintStart_toStartOf="parent"/>
 
                 <LinearLayout
                     android:id="@+id/sensor2"
@@ -124,34 +97,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent">
-
-                    <TextView
-                        android:id="@+id/txtVerAreaSensor"
-                        android:layout_width="250dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
-                        android:layout_marginStart="10dp"
-                        android:hint="Area de Uvicacion:"
-                        android:textColorHint="#FFFFFF"
-                        android:textSize="15dp" />
-
-                    <TextView
-                        android:id="@+id/TextVerAreaSensor"
-                        android:layout_width="match_parent"
-                        android:layout_height="45dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginStart="15dp"
-                        android:layout_marginEnd="15dp"
-                        android:background="@color/purple_200"
-                        android:singleLine="true"
-                        android:textAlignment="center"
-                        android:textColor="@color/black"
-                        android:textColorHint="@color/black"
-                        android:textSize="15dp" />
-
-
-                </LinearLayout>
+                    app:layout_constraintStart_toStartOf="parent"/>
 
                 <LinearLayout
                     android:id="@+id/parque6"
@@ -172,16 +118,17 @@
                         android:textColorHint="#FFFFFF"
                         android:textSize="18dp" />
 
-                    <Switch
-                        android:id="@+id/switch1rueda"
+                    <Button
+                        android:id="@+id/button"
                         android:layout_width="match_parent"
-                        android:layout_height="51dp"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginStart="40dp"
-                        android:layout_marginEnd="40dp"
-                        android:textSize="30dp"
-                        android:background="@color/purple_200"
-                        android:text="Control" />
+                        android:layout_height="wrap_content"
+                        android:text="on" />
+
+                    <Button
+                        android:id="@+id/button2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="off" />
 
 
                 </LinearLayout>

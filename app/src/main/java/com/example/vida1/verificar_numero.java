@@ -24,7 +24,7 @@ import org.json.JSONObject;
 
 public class verificar_numero extends AppCompatActivity {
 
-   private RequestQueue requestQueue;
+    private RequestQueue requestQueue;
 
     Button btnVerificarCuenta;
     EditText NumeroVerificacion;
@@ -59,25 +59,25 @@ public class verificar_numero extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
-                  JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, "http://25.62.178.77:8000/api/telefonoregistr", body, new Response.Listener<JSONObject>() {
-                      @Override
-                      public void onResponse(JSONObject response) {
-                          try{
-                              Toast.makeText(verificar_numero.this, "Cuenta verificada correctamente", Toast.LENGTH_SHORT);
-                              startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, "http://25.62.178.77:8000/api/telefonoregistr", body, new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            Toast.makeText(verificar_numero.this, "Cuenta verificada correctamente", Toast.LENGTH_SHORT);
+                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
 
-                          } catch (Exception e) {
-                              e.printStackTrace();
-                          }
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
 
 
-                      }
-                  }, new Response.ErrorListener() {
-                      @Override
-                      public void onErrorResponse(VolleyError error) {
-                          Toast.makeText(verificar_numero.this, "Codigo Incorrecto", Toast.LENGTH_SHORT).show();
-                      }
-                  });
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(verificar_numero.this, "Codigo Incorrecto", Toast.LENGTH_SHORT).show();
+                    }
+                });
                 requestQueue.add(request);
             }
 
