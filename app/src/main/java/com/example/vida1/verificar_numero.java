@@ -24,7 +24,7 @@ import org.json.JSONObject;
 
 public class verificar_numero extends AppCompatActivity {
 
-   private RequestQueue requestQueue;
+    private RequestQueue requestQueue;
 
     Button btnVerificarCuenta;
     EditText NumeroVerificacion;
@@ -78,6 +78,7 @@ public class verificar_numero extends AppCompatActivity {
                           Toast.makeText(verificar_numero.this, "Codigo Incorrecto", Toast.LENGTH_SHORT).show();
                       }
                   });
+
                 requestQueue.add(request);
             }
 

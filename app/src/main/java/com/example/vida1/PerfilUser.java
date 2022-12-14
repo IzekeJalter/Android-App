@@ -1,6 +1,7 @@
 package com.example.vida1;
 
 import static com.example.vida1.Claseid.id.elnumero;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -43,7 +44,6 @@ public class PerfilUser extends AppCompatActivity {
     String tarjetas;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,10 +59,10 @@ public class PerfilUser extends AppCompatActivity {
         findViewById(R.id.btnCerrarSeccion).setOnClickListener(this::CerrarSesion);
 
 
-        String valor=String.valueOf(elnumero);
+        String valor = String.valueOf(elnumero);
 
 
-       String url="http://3.133.89.232/api/user/"+valor;
+        String url = "http://3.133.89.232/api/user/" + valor;
 
         username = findViewById(R.id.TextVerApodo);
         email = findViewById(R.id.TextVerCorreo);
@@ -71,6 +71,7 @@ public class PerfilUser extends AppCompatActivity {
         edad = findViewById(R.id.TextVerEdad);
         tel = findViewById(R.id.TextVerTel);
         tarjeta = findViewById(R.id.TextVerNumerotarjetaDueño);
+
 
        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
            @Override
@@ -103,21 +104,19 @@ public class PerfilUser extends AppCompatActivity {
                Toast.makeText( PerfilUser.this, "Hubo un error al inciar sesion"+error, Toast.LENGTH_SHORT).show();
            }
        });
-
         requestQueue.add(jsonObjectRequest);
-
          }
 
 
     private void CerrarSesion(View view) {
-        startActivity(new Intent(getApplicationContext(),MainActivity.class));
+        startActivity(new Intent(getApplicationContext(), MainActivity.class));
     }
 
     private void regresarPagina(View view) {
-        startActivity(new Intent(getApplicationContext(),PaginaPrincipal.class));
+        startActivity(new Intent(getApplicationContext(), PaginaPrincipal.class));
     }
 
     private void iraPaginaEditarPErfil(View view) {
-        startActivity(new Intent(getApplicationContext(),EditarPerfil.class));
+        startActivity(new Intent(getApplicationContext(), EditarPerfil.class));
     }
 }
