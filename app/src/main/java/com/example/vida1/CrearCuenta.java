@@ -1,7 +1,7 @@
 package com.example.vida1;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import static com.example.vida1.Claseid.id.ip_final;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
@@ -103,7 +103,7 @@ public class CrearCuenta extends AppCompatActivity {
                 //JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, "http://3.133.89.232/api/registroDueño", body, new Response.Listener<JSONObject>() {
 
 
-                JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, "http://18.219.177.143/api/registroDueno", body, new Response.Listener<JSONObject>() {
+                JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, ip_final +"/api/registroDueno", body, new Response.Listener<JSONObject>() {
 
                     @Override
                     public void onResponse(JSONObject response) {

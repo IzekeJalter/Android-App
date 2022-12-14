@@ -1,6 +1,8 @@
 package com.example.vida1;
 
 
+import static com.example.vida1.Claseid.id.ip_final;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -59,7 +61,7 @@ public class verificar_numero extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
-                  JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, "http://18.219.177.143/api/telefonoregistr", body, new Response.Listener<JSONObject>() {
+                  JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, ip_final + "/api/telefonoregistr", body, new Response.Listener<JSONObject>() {
                       @Override
                       public void onResponse(JSONObject response) {
                           try{

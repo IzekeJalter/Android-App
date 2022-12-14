@@ -1,6 +1,7 @@
 package com.example.vida1;
 
 import static com.example.vida1.Claseid.id.elnumero;
+import static com.example.vida1.Claseid.id.ip_final;
 import static com.example.vida1.Claseid.id.n_tarjeta;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -53,7 +54,7 @@ public class PerfilUser extends AppCompatActivity {
         String ntarjeta = String.valueOf(n_tarjeta);
 
 
-        String url = "http://3.133.89.232/api/user/" + valor;
+        String url = ip_final + "/api/user/" + valor;
 
         username = findViewById(R.id.TextVerApodo);
         email = findViewById(R.id.TextVerCorreo);

@@ -2,6 +2,8 @@ package com.example.vida1;
 
 import androidx.appcompat.app.AppCompatActivity;
 import static com.example.vida1.Claseid.id.elnumero;
+import static com.example.vida1.Claseid.id.ip_final;
+
 import android.os.Bundle;
 
 import com.android.volley.Request;
@@ -18,7 +20,7 @@ public class ListaVisitas extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_visitas);
 
-        String url="http://3.133.89.232/api/traevisitante/"+elnumero;
+        String url= ip_final + "/api/traevisitante/"+elnumero;
 
         JsonObjectRequest jsonObjectRequest= new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override

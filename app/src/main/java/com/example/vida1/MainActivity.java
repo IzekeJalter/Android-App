@@ -1,6 +1,7 @@
 package com.example.vida1;
 
 import static com.example.vida1.Claseid.id.elnumero;
+import static com.example.vida1.Claseid.id.ip_final;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -97,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
         revisarcampos();
 
 
-        String login = "http://3.133.89.232/api/login";
+        String login = ip_final + "/api/login";
 
 
         JSONObject jsonbody = new JSONObject();
