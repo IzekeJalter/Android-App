@@ -87,6 +87,7 @@ public class CrearCuenta extends AppCompatActivity {
                 }
 
                 JSONObject body = new JSONObject();
+
                 try {
                     body.put("nombre", nombre.getText());
                     body.put("apellidos", apellidos.getText());
@@ -100,6 +101,7 @@ public class CrearCuenta extends AppCompatActivity {
                 }
 
                 //JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, "http://3.133.89.232/api/registroDueño", body, new Response.Listener<JSONObject>() {
+
 
                 JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, "http://18.219.177.143/api/registroDueno", body, new Response.Listener<JSONObject>() {
 

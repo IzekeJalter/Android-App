@@ -45,6 +45,7 @@ public class CrearParque extends AppCompatActivity {
        // JSONObject parque = new JSONObject();
         JSONObject jBody = new JSONObject();
         try {
+
             jBody.put("nombre",""+crearnombre.getText());
             jBody.put("reglas",""+reglas.getText());
             jBody.put("medida_largoTerreno",""+medialargo.getText());
@@ -54,11 +55,13 @@ public class CrearParque extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, ApiAddparque, jBody, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_SHORT).show();
-                Toast.makeText(getApplicationContext(), "Se ah creado tu parque ", Toast.LENGTH_SHORT).show();
+
+                Toast.makeText(getApplicationContext(), "Se ha creado tu parque ", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(),PaginaPrincipal.class);
                 startActivity(intent);
             }
