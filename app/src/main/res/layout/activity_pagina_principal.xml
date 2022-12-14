@@ -76,7 +76,7 @@
         <LinearLayout
             android:layout_width="390dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="0dp"
             android:orientation="vertical"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -84,7 +84,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="150dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/edittextvista"
@@ -92,10 +92,10 @@
 
                 <ImageButton
                     android:id="@+id/imageView1"
-                    android:layout_width="150dp"
-                    android:layout_height="130dp"
+                    android:layout_width="100dp"
+                    android:layout_height="95dp"
                     android:backgroundTint="#04FAE5"
-                    android:layout_marginStart="109dp"
+                    android:layout_marginStart="130dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="5dp"
                     android:layout_marginBottom="5dp"
@@ -116,7 +116,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="150dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"
@@ -125,9 +125,9 @@
 
                 <ImageButton
                     android:id="@+id/imageView2"
-                    android:layout_width="150dp"
-                    android:layout_height="120dp"
-                    android:layout_marginStart="100dp"
+                    android:layout_width="100dp"
+                    android:layout_height="95dp"
+                    android:layout_marginStart="130dp"
                     android:layout_marginTop="10dp"
                     android:backgroundTint="#04FAE5"
                     android:layout_marginEnd="5dp"
@@ -146,6 +146,8 @@
                     android:textSize="15dp"
                     app:cornerRadius="20dp" />
             </LinearLayout>
+
+
 
         </LinearLayout>
 
