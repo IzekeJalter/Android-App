@@ -59,7 +59,7 @@ public class verificar_numero extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
-                  JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, "http://25.62.178.77:8000/api/telefonoregistr", body, new Response.Listener<JSONObject>() {
+                  JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, "http://18.219.177.143/api/telefonoregistr", body, new Response.Listener<JSONObject>() {
                       @Override
                       public void onResponse(JSONObject response) {
                           try{

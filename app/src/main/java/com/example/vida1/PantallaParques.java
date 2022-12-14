@@ -43,9 +43,8 @@ public class PantallaParques extends AppCompatActivity {
         results = new ArrayList<>();
         jsrespons();
     }
-
     private void jsrespons() {
-        String url ="url para ver la lista parques";
+        String url ="http://18.219.177.143/api/traerparques";
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {

@@ -40,7 +40,7 @@ public class CrearParque extends AppCompatActivity {
         mQueue = Singleton.getInstance(CrearParque.this).getRequestQueue();
     }
     private void CrearParque1(View view) {
-        String ApiAddparque ="http://127.0.0.1:8000/api/addParque";
+        String ApiAddparque ="http://18.219.177.143/api/addParque";
        // JSONObject parque = new JSONObject();
         JSONObject jBody = new JSONObject();
         try {
