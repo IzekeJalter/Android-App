@@ -33,6 +33,8 @@ public class InformacionParque extends AppCompatActivity {
         findViewById(R.id.btnregresar).setOnClickListener(this::RegresarPagina);
         findViewById(R.id.btnpaginaListaSensores).setOnClickListener(this::ListaSensores);
         findViewById(R.id.btnPaginaListaVisitantes).setOnClickListener(this::vistaVisitantes);
+
+
         Intent intent = getIntent();
         id = intent.getStringExtra("id");
         nombre = intent.getStringExtra("nombre");
@@ -42,7 +44,6 @@ public class InformacionParque extends AppCompatActivity {
         cantidad_entradas = intent.getStringExtra("cantidad_entradas");
         cantidad_salidas = intent.getStringExtra("cantidad_salidas");
 
-        parque elemts = (parque) getIntent().getSerializableExtra("parque");
         txtnombre.setText(nombre);
         txtreglas.setText(reglas);
         txtlargo.setText(medida_largoTerreno);
