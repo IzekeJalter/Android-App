@@ -1,6 +1,7 @@
 package com.example.vida1;
 
 import static com.example.vida1.Claseid.id.elnumero;
+import static com.example.vida1.Claseid.id.ip_final;
 import static com.example.vida1.Claseid.id.n_tarjeta;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -85,7 +86,11 @@ public class CrearVisitante extends AppCompatActivity {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+<<<<<<< HEAD
                 String url = "http://18.219.177.143/api/addVisitante/"+tarjeta;
+=======
+                String url = ip_final + "/api/addVisitante/"+tarjeta;
+>>>>>>> e138e5854535d4a71cc016b81bc5178299cd8bbb
 
                 JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, body, new Response.Listener<JSONObject>() {
                     @Override

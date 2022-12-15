@@ -1,17 +1,21 @@
 package com.example.vida1;
 
+import static com.example.vida1.Claseid.id.ip_final;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.example.vida1.Modelos.parque;
 
 public class InformacionParque extends AppCompatActivity {
-    private String id;
+    private String id,nombre,reglas,medida_largoTerreno,medida_anchoTerreno,cantidad_entradas,cantidad_salidas;
     private TextView txtnombre, txtlargo,txtancho,txtentradas,txtsalidas,txtreglas;
 
     @Override
@@ -20,18 +24,40 @@ public class InformacionParque extends AppCompatActivity {
         setContentView(R.layout.activity_informacion_parque);
         getSupportActionBar().hide();
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        txtnombre = findViewById(R.id.txtVerNombreParque);
+        txtnombre = findViewById(R.id.TextVerNombreParque);
         txtlargo = findViewById(R.id.TextVerLargoTerreno);
         txtancho = findViewById(R.id.TextVerAnchoTerreno);
-        txtentradas = findViewById(R.id.EditTextEditarCantidadSalidas);
+        txtentradas = findViewById(R.id.TextVerCantidadEntradas);
+        txtsalidas = findViewById(R.id.TextVerCantidadSalidas);
+        txtreglas = findViewById(R.id.TextVerReglasParque);
+        findViewById(R.id.btnregresar).setOnClickListener(this::RegresarPagina);
 
         Intent intent = getIntent();
         id = intent.getStringExtra("id");
-        getinfo();
+        nombre = intent.getStringExtra("nombre");
+        reglas = intent.getStringExtra("reglas");
+        medida_largoTerreno = intent.getStringExtra("medida_largoTerreno");
+        medida_anchoTerreno = intent.getStringExtra("medida_anchoTerreno");
+        cantidad_entradas = intent.getStringExtra("cantidad_entradas");
+        cantidad_salidas = intent.getStringExtra("cantidad_salidas");
+
+
+        parque elemts = (parque) getIntent().getSerializableExtra("parque");
+
+
+        txtnombre.setText(nombre);
+        txtreglas.setText(reglas);
+        txtlargo.setText(medida_largoTerreno);
+        txtancho.setText(medida_anchoTerreno);
+        txtentradas.setText(cantidad_entradas);
+        txtsalidas.setText(cantidad_salidas);
+
+
     }
 
-    private void getinfo() {
-        String URL = "http://18.219.177.143/api/parque/3/" + id;
-
+    private void RegresarPagina(View view) {
+        Intent intent = new Intent(getApplicationContext(),PantallaParques.class);
+        startActivity(intent);
     }
+
 }

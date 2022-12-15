@@ -7,7 +7,7 @@ public class id {
     public static int elnumero;
     public static int n_tarjeta;
     public int ids;
-
+    public static String ip_final = "http://18.219.177.143";
 
 
 }

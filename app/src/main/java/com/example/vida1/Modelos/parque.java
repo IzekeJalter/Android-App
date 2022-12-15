@@ -1,6 +1,8 @@
 package com.example.vida1.Modelos;
 
-public class parque {
+import java.io.Serializable;
+
+public class parque implements Serializable {
     private String id;
     private String nombre;
     private String dueño_id;
