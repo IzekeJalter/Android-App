@@ -3,6 +3,7 @@ package com.example.vida1;
 import static com.example.vida1.Claseid.id.elnumero;
 import static com.example.vida1.Claseid.id.ip_final;
 import static com.example.vida1.Claseid.id.n_tarjeta;
+import static com.example.vida1.Claseid.id.tokens;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,6 +14,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -24,6 +26,9 @@ import com.example.vida1.Singleton.Singleton;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class PerfilUser extends AppCompatActivity {
@@ -47,7 +52,12 @@ public class PerfilUser extends AppCompatActivity {
         getSupportActionBar().hide();
         findViewById(R.id.btnPaginaEditarCuenta).setOnClickListener(this::iraPaginaEditarPErfil);
         findViewById(R.id.btnregresar).setOnClickListener(this::regresarPagina);
-        findViewById(R.id.btnCerrarSeccion).setOnClickListener(this::CerrarSesion);
+        findViewById(R.id.btnCerrarSeccion).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                CerrarSesion();
+            }
+        });
 
 
         String valor = String.valueOf(elnumero);
@@ -102,8 +112,34 @@ public class PerfilUser extends AppCompatActivity {
          }
 
 
-    private void CerrarSesion(View view) {
-        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+    private void CerrarSesion() {
+        String Url = ip_final + "/api/logout";
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, Url, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                try {
+                    Toast.makeText(PerfilUser.this, "Tu sesion ha sido cerrada exitosamente", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    tokens = "";
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                error.printStackTrace();
+            }
+        }){
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("Authorization", "Bearer " + tokens);
+                return headers;
+            }
+        };
+
+        Singleton.getInstance(this).addToRequestQueue(jsonObjectRequest);
     }
 
     private void regresarPagina(View view) {
