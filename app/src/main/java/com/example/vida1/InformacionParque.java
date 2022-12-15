@@ -55,6 +55,7 @@ public class InformacionParque extends AppCompatActivity {
 
     private void vistaVisitantes(View view) {
         Intent intent = new Intent(getApplicationContext(),ListaVisitas.class);
+        intent.putExtra("id_parque", id);
         startActivity(intent);
     }
 

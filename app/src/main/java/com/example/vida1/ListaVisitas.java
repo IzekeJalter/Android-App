@@ -6,14 +6,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import static com.example.vida1.Claseid.id.elnumero;
 import static com.example.vida1.Claseid.id.ip_final;
+import static com.example.vida1.Claseid.id.tokens;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
-
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.Toast;
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
@@ -25,10 +29,14 @@ import com.google.gson.Gson;
 
 import org.json.JSONObject;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ListaVisitas extends AppCompatActivity {
     Button btnPaginaCrearvistas;
+    ImageButton btnregresar;
+    private RequestQueue mQueue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,13 +46,34 @@ public class ListaVisitas extends AppCompatActivity {
         btnPaginaCrearvistas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent parque = getIntent();
+                String id_parque = parque.getStringExtra("id_parque");
                 Intent intent = new Intent(getApplicationContext(),CrearVisitante.class);
+                intent.putExtra("id_parque", id_parque);
                 startActivity(intent);
             }
         });
 
-        String url = ip_final + "/api/visitantes/3";
-        final RecyclerView rvVisitante = findViewById(R.id.RclistaVisitas);
+
+        mQueue = Singleton.getInstance(ListaVisitas.this).getRequestQueue();
+        btnregresar = (ImageButton) findViewById(R.id.btnregresarMV);
+        btnregresar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Regresarpagina();
+            }
+        });
+
+
+//        findViewById(R.id.btnregresar).setOnClickListener(this::Regresarpagina);
+//        findViewById(R.id.btnPaginaCrearvistas).setOnClickListener(this::paginaCrearvisitante);
+
+        getInfo();
+    }
+
+    private void getInfo(){
+        String url = ip_final + "/api/visitantesL/" + elnumero;
+        final androidx.recyclerview.widget.RecyclerView rvVisitante = findViewById(R.id.RclistaVisitas);
 
         findViewById(R.id.btnregresar).setOnClickListener(this::Regresarpagina);
         findViewById(R.id.btnpaginaCrearVisitante).setOnClickListener(this::paginaCrearvisitante);
@@ -54,16 +83,27 @@ public class ListaVisitas extends AppCompatActivity {
             @Override
             public void onResponse(JSONObject response) {
                 try {
-                    Gson gson = new Gson();
-                    ListaVisitante visilista = gson.fromJson(response.toString(), ListaVisitante.class);
-                    List<Visitante> mvisi = visilista.getData();
+                    Toast.makeText(ListaVisitas.this, response.toString(), Toast.LENGTH_SHORT).show();
+                    String msg = "Informacion localizada";
+                    String respuesta = response.getString("msg");
+                    if(msg == respuesta){
+                        //Toast.makeText(ListaVisitas.this, response.toString(), Toast.LENGTH_SHORT).show();
+                        Gson gson = new Gson();
+                        ListaVisitante visilista = gson.fromJson(response.toString(), ListaVisitante.class);
+                        List<Visitante> mvisi = visilista.getData();
 
-                    VisitanteAdapter adapter = new VisitanteAdapter(mvisi, ListaVisitas.this);
-                    rvVisitante.setAdapter(adapter);
-                    rvVisitante.setHasFixedSize(true);
-                    RecyclerView.LayoutManager manager = new LinearLayoutManager(ListaVisitas.this);
-                    rvVisitante.setLayoutManager(manager);
-
+                        VisitanteAdapter adapter = new VisitanteAdapter(mvisi, ListaVisitas.this);
+                        rvVisitante.setAdapter(adapter);
+                        rvVisitante.setHasFixedSize(true);
+                        androidx.recyclerview.widget.RecyclerView.LayoutManager manager = new LinearLayoutManager(ListaVisitas.this);
+                        rvVisitante.setLayoutManager(manager);
+                    }else{
+                        Intent parque = getIntent();
+                        String id_parque = parque.getStringExtra("id_parque");
+                        Intent intent = new Intent(getApplicationContext(), CrearVisitante.class);
+                        intent.putExtra("id_parque", id_parque);
+                        startActivity(intent);
+                    }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -73,9 +113,23 @@ public class ListaVisitas extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
                 error.printStackTrace();
             }
-        });
+        }){
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("Authorization", "Bearer " + tokens);
+                return headers;
+            }
+        };
 
-        Singleton.getInstance(this).addToRequestQueue(jsonObjectRequest);
+        //Toast.makeText(this, "Si ando haciendo cosas", Toast.LENGTH_SHORT).show();
+        //Singleton.getInstance(this).addToRequestQueue(jsonObjectRequest);
+        mQueue.add(jsonObjectRequest);
+    }
+
+    private void Regresarpagina() {
+        Intent intent = new Intent(getApplicationContext(),PantallaParques.class);
+        startActivity(intent);
     }
 
     private void paginaCrearvisitante(View view) {
