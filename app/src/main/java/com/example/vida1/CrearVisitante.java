@@ -78,6 +78,7 @@ public class CrearVisitante extends AppCompatActivity {
                 }
                 JSONObject body = new JSONObject();
                 try {
+                    body.put("parque", 3);
                     body.put("nombre", nombre.getText());
                     body.put("apellidos", apellidos.getText());
                     body.put("edad", edad.getText());
@@ -87,7 +88,7 @@ public class CrearVisitante extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
-                String url = ip_final + "/api/addVisitante/"+tarjeta;
+                String url = ip_final + "/api/anadirvisitante/3/"+1;
 
 
                 JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, body, new Response.Listener<JSONObject>() {
@@ -102,7 +103,7 @@ public class CrearVisitante extends AppCompatActivity {
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(CrearVisitante.this, "Hubo un error al crear la cuenta: " + error, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(CrearVisitante.this, "Hubo un error al crear el visitante: " + error, Toast.LENGTH_SHORT).show();
                     }
                 });
                 requestQueue.add(request);
