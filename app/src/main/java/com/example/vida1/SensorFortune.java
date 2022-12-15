@@ -82,7 +82,7 @@ public class SensorFortune extends AppCompatActivity implements View.OnClickList
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 HashMap<String, String> headers = new HashMap<String, String>();
-                headers.put("X-AIO-Key", "aio_rGEy88mCdYkqwaz9uyXmqL0xL56u");
+                headers.put("X-AIO-Key", "aio_FUJX77yb2kHgVIoUTVOrZpQoj40L");
                 return headers;
             }
         };
