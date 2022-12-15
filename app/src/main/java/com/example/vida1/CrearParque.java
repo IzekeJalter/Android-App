@@ -49,7 +49,7 @@ public class CrearParque extends AppCompatActivity {
     }
 
     private void CrearParque1(View view) {
-        String ApiAddparque = ip_final + "/api/anadirparque/" + elnumero;
+        String ApiAddparque = ip_final + "/api/add/" + elnumero;
        // JSONObject parque = new JSONObject();
         JSONObject jBody = new JSONObject();
         try {

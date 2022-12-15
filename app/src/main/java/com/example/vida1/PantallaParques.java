@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -24,7 +25,9 @@ import com.example.vida1.Modelos.parqueRespuesta;
 import com.example.vida1.RecyclerParques.ParqueAdaptador;
 import com.example.vida1.Singleton.Singleton;
 import com.google.gson.Gson;
+import com.google.gson.JsonSyntaxException;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
@@ -49,24 +52,40 @@ public class PantallaParques extends AppCompatActivity {
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
+                try {
+                    //Toast.makeText(PantallaParques.this, response.toString(), Toast.LENGTH_SHORT).show();
+                    //Boolean respuesta = response.isNull("info");
+                    int status = 200;
+                    int respuesta = Integer.parseInt(response.getString("status"));
+                    if(respuesta != status){
+                        Toast.makeText(PantallaParques.this, "Tienes que agregar primero un parque", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(getApplicationContext(), PaginaPrincipal.class);
+                        startActivity(intent);
+                    }else if(respuesta == status){
+                        //Toast.makeText(PantallaParques.this, response.toString(), Toast.LENGTH_SHORT).show();
+                        Gson gson = new Gson();
 
-                Gson gson = new Gson();
+                        parqueRespuesta parquelista = gson.fromJson(response.toString(), parqueRespuesta.class);
+                        List<parque> mparques= parquelista.getData();
 
-                parqueRespuesta parquelista = gson.fromJson(response.toString(), parqueRespuesta.class);
-                List<parque> mparques= parquelista.getData();
+                        ParqueAdaptador parqueAdaptador = new ParqueAdaptador(mparques, PantallaParques.this);
+                        rvParque.setAdapter(parqueAdaptador);
+                        rvParque.setHasFixedSize(true);
 
-                ParqueAdaptador parqueAdaptador = new ParqueAdaptador(mparques, PantallaParques.this);
-                rvParque.setAdapter(parqueAdaptador);
-                rvParque.setHasFixedSize(true);
-
-                RecyclerView.LayoutManager manager = new LinearLayoutManager(PantallaParques.this);
-                rvParque.setLayoutManager(manager);
-
+                        RecyclerView.LayoutManager manager = new LinearLayoutManager(PantallaParques.this);
+                        rvParque.setLayoutManager(manager);
+                    }
+                } catch (JsonSyntaxException e) {
+                    e.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
         },new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 error.printStackTrace();
+                Toast.makeText(PantallaParques.this, error.toString(), Toast.LENGTH_SHORT).show();
             }
         }){
             @Override

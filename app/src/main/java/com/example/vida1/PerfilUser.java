@@ -82,19 +82,19 @@ public class PerfilUser extends AppCompatActivity {
            public void onResponse(JSONObject response) {
                try{
                    usernames =response.getJSONObject("data").getString("username");
-                   username.setText("username: "+usernames);
+                   username.setText(usernames);
                    emails=response.getJSONObject("data").getString("email");
-                   email.setText("correo: "+ emails);
-                 nombres = response.getJSONObject("data").getString("nombre");
-                   nombre.setText("nombre: "+nombres);
+                   email.setText(emails);
+                   nombres = response.getJSONObject("data").getString("nombre");
+                   nombre.setText(nombres);
                    apellidos = response.getJSONObject("data").getString("apellidos");
-                   apellido.setText("apellidos: "+apellidos);
+                   apellido.setText(apellidos);
                    edades=response.getJSONObject("data").getString("edad");
-                   edad.setText("edad: "+ edades);
+                   edad.setText(edades);
                    telefonos=response.getJSONObject("data").getString("telefono");
-                   tel.setText("telefono: "+ telefonos);
+                   tel.setText(telefonos);
                    tarjetas= String.valueOf(response.getJSONObject("data").getInt("numero_tarjeta"));
-                   tarjeta.setText("tarjeta: " + tarjetas);
+                   tarjeta.setText(tarjetas);
 
                } catch (Exception e) {
                    e.printStackTrace();

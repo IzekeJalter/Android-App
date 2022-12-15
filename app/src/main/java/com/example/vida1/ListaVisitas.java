@@ -64,34 +64,33 @@ public class ListaVisitas extends AppCompatActivity {
             }
         });
 
-
-//        findViewById(R.id.btnregresar).setOnClickListener(this::Regresarpagina);
-//        findViewById(R.id.btnPaginaCrearvistas).setOnClickListener(this::paginaCrearvisitante);
-
         getInfo();
     }
 
     private void getInfo(){
         String url = ip_final + "/api/visitantesL/" + elnumero;
-        final androidx.recyclerview.widget.RecyclerView rvVisitante = findViewById(R.id.RclistaVisitas);
-
-        findViewById(R.id.btnregresar).setOnClickListener(this::Regresarpagina);
-        findViewById(R.id.btnpaginaCrearVisitante).setOnClickListener(this::paginaCrearvisitante);
+        final RecyclerView rvVisitante = findViewById(R.id.RclistaVisitas);
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,
                 url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 try {
-                    Gson gson = new Gson();
-                    ListaVisitante visilista = gson.fromJson(response.toString(), ListaVisitante.class);
-                    List<Visitante> mvisi = visilista.getData();
+                    Toast.makeText(ListaVisitas.this, response.toString(), Toast.LENGTH_SHORT).show();
+                    int status = 200;
+                    int respuesta = Integer.parseInt(response.getString("status"));
+                    if(status == respuesta){
+                        Gson gson = new Gson();
+                        ListaVisitante visilista = gson.fromJson(response.toString(), ListaVisitante.class);
+                        List<Visitante> mvisi = visilista.getData();
 
-                    VisitanteAdapter adapter = new VisitanteAdapter(mvisi, ListaVisitas.this);
-                    rvVisitante.setAdapter(adapter);
-                    rvVisitante.setHasFixedSize(true);
-                    androidx.recyclerview.widget.RecyclerView.LayoutManager manager = new LinearLayoutManager(ListaVisitas.this);
-                    rvVisitante.setLayoutManager(manager);
+                        VisitanteAdapter adapter = new VisitanteAdapter(mvisi, ListaVisitas.this);
+                        rvVisitante.setAdapter(adapter);
+                        rvVisitante.setHasFixedSize(true);
+                        RecyclerView.LayoutManager manager = new LinearLayoutManager(ListaVisitas.this);
+                        rvVisitante.setLayoutManager(manager);
+                    }
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -117,16 +116,6 @@ public class ListaVisitas extends AppCompatActivity {
 
     private void Regresarpagina() {
         Intent intent = new Intent(getApplicationContext(),PantallaParques.class);
-        startActivity(intent);
-    }
-
-    private void paginaCrearvisitante(View view) {
-        Intent intent = new Intent(getApplicationContext(),CrearVisitante.class);
-        startActivity(intent);
-    }
-
-    private void Regresarpagina(View view) {
-        Intent intent = new Intent(getApplicationContext(),InformacionParque.class);
         startActivity(intent);
     }
 }
