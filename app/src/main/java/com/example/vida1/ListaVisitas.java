@@ -15,7 +15,6 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
-
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -76,6 +75,9 @@ public class ListaVisitas extends AppCompatActivity {
         String url = ip_final + "/api/visitantesL/" + elnumero;
         final androidx.recyclerview.widget.RecyclerView rvVisitante = findViewById(R.id.RclistaVisitas);
 
+        findViewById(R.id.btnregresar).setOnClickListener(this::Regresarpagina);
+        findViewById(R.id.btnpaginaCrearVisitante).setOnClickListener(this::paginaCrearvisitante);
+
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,
                 url, null, new Response.Listener<JSONObject>() {
             @Override
@@ -127,6 +129,16 @@ public class ListaVisitas extends AppCompatActivity {
 
     private void Regresarpagina() {
         Intent intent = new Intent(getApplicationContext(),PantallaParques.class);
+        startActivity(intent);
+    }
+
+    private void paginaCrearvisitante(View view) {
+        Intent intent = new Intent(getApplicationContext(),CrearVisitante.class);
+        startActivity(intent);
+    }
+
+    private void Regresarpagina(View view) {
+        Intent intent = new Intent(getApplicationContext(),InformacionParque.class);
         startActivity(intent);
     }
 }
