@@ -1,13 +1,14 @@
 package com.example.vida1;
 
+import static com.example.vida1.Claseid.id.IOK;
+
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
-
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -18,49 +19,53 @@ import com.android.volley.toolbox.JsonObjectRequest;
 
 import org.json.JSONObject;
 
-import java.lang.ref.ReferenceQueue;
 import java.util.HashMap;
 import java.util.Map;
 
 import Singleton.Singleton;
 
+public class SensorFortune extends AppCompatActivity implements View.OnClickListener {
 
-public class SensorRueda extends AppCompatActivity  implements View.OnClickListener {
-    Button push;
     RequestQueue queue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-        queue=Singleton.getInstance(SensorRueda.this).getRequestQueue();
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sensor_rueda);
-        findViewById(R.id.button).setOnClickListener(this);
-        findViewById(R.id.button2).setOnClickListener(this);
+        setContentView(R.layout.activity_sensor_fortune);
+
+        getSupportActionBar().hide();
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        queue = Singleton.getInstance(SensorFortune.this).getRequestQueue();
+         findViewById(R.id.buttonR).setOnClickListener(this);
+        findViewById(R.id.button2R).setOnClickListener(this);
     }
+
 
     @Override
     public void onClick(View view) {
-
-        String url2="https://io.adafruit.com/api/v2/IvonneLoba/feeds/viyda.led/data";
+        String url="https://io.adafruit.com/api/v2/IvonneLoba/feeds/viyda.led/data";
         JSONObject led = new JSONObject();
+        String v = "0";
 
         switch (view.getId()) {
-            case R.id.button:
-                try {
-                    led.put("value", "1");
-                } catch (Exception e) {
-                }
+            case R.id.buttonR:
+                v = "1";
                 break;
-            case R.id.button2:
-
-                try {
-                    led.put("value", "0");
-                } catch (Exception e) {
-                }
+            case R.id.button2R:
+                v = "0";
                 break;
         }
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url2, led, new Response.Listener<JSONObject>() {
+        try {
+            led.put("value", v);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        Toast.makeText(this, "Hola", Toast.LENGTH_SHORT).show();
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST,
+                url,
+                led, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_SHORT).show();
@@ -77,20 +82,10 @@ public class SensorRueda extends AppCompatActivity  implements View.OnClickListe
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 HashMap<String, String> headers = new HashMap<String, String>();
-                headers.put("X-AIO-Key","aio_azPQ14DkwuOnX0yt4VhQwZj9lhNg");
+                headers.put("X-AIO-Key", "aio_rGEy88mCdYkqwaz9uyXmqL0xL56u");
                 return headers;
             }
         };
         queue.add(jsonObjectRequest);
     }
 }
-
-
-
-
-
-
-
-
-
- 

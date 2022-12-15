@@ -112,6 +112,7 @@ public class CrearVisitante extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
+                            //Toast.makeText(CrearVisitante.this, response.toString(), Toast.LENGTH_SHORT).show();
                             int status = 201;
                             int respuesta = Integer.parseInt(response.getString("status"));
                             if(status == respuesta){

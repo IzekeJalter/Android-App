@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondo1"
-    tools:context=".SensorRueda">
+    tools:context=".SensorFortune">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -110,6 +110,7 @@
 
                     <TextView
                         android:id="@+id/txtInfo"
+                        android:gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
@@ -119,13 +120,18 @@
                         android:textSize="18dp" />
 
                     <Button
-                        android:id="@+id/button"
+                        android:id="@+id/buttonR"
+                        android:layout_marginTop="30dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="on" />
 
                     <Button
-                        android:id="@+id/button2"
+                        android:id="@+id/button2R"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="off" />
@@ -139,7 +145,5 @@
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
