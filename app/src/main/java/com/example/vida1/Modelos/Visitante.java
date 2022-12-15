@@ -1,6 +1,8 @@
 package com.example.vida1.Modelos;
 
-public class Visitante {
+import java.io.Serializable;
+
+public class Visitante implements Serializable {
     private String id;
     private String usuario_id;
     private String nombre;
