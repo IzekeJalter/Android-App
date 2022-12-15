@@ -1,7 +1,11 @@
 package com.example.vida1;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import static com.example.vida1.Claseid.id.elnumero;
 import static com.example.vida1.Claseid.id.ip_final;
+import static com.example.vida1.Claseid.id.tokens;
+
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -11,6 +15,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -20,6 +25,9 @@ import com.android.volley.toolbox.JsonObjectRequest;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class CrearParque extends AppCompatActivity {
     private RequestQueue mQueue;
@@ -41,7 +49,7 @@ public class CrearParque extends AppCompatActivity {
     }
 
     private void CrearParque1(View view) {
-        String ApiAddparque = ip_final + "/api/anadirparque/3";
+        String ApiAddparque = ip_final + "/api/anadirparque/" + elnumero;
        // JSONObject parque = new JSONObject();
         JSONObject jBody = new JSONObject();
         try {
@@ -59,7 +67,7 @@ public class CrearParque extends AppCompatActivity {
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, ApiAddparque, jBody, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_SHORT).show();
 
                 Toast.makeText(getApplicationContext(), "Se ha creado tu parque ", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(getApplicationContext(),PaginaPrincipal.class);
@@ -71,7 +79,14 @@ public class CrearParque extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
                 error.printStackTrace();
             }
-        });
+        }){
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("Authorization", "Bearer " + tokens);
+                return headers;
+            }
+        };
         mQueue.add(request);
 
 

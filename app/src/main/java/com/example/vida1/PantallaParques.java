@@ -1,6 +1,8 @@
 package com.example.vida1;
 
+import static com.example.vida1.Claseid.id.elnumero;
 import static com.example.vida1.Claseid.id.ip_final;
+import static com.example.vida1.Claseid.id.tokens;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -11,6 +13,7 @@ import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -24,7 +27,9 @@ import com.google.gson.Gson;
 
 import org.json.JSONObject;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class PantallaParques extends AppCompatActivity {
 
@@ -38,7 +43,7 @@ public class PantallaParques extends AppCompatActivity {
         jsrespons();
     }
     private void jsrespons() {
-        String url = ip_final + "/api/parques/3";
+        String url = ip_final + "/api/parques/" + elnumero;
         final RecyclerView rvParque = findViewById(R.id.RclistaParque);
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
@@ -63,7 +68,14 @@ public class PantallaParques extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
                 error.printStackTrace();
             }
-        });
+        }){
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("Authorization", "Bearer " + tokens);
+                return headers;
+            }
+        };
         Singleton.getInstance(this).addToRequestQueue(request);
     }
 
