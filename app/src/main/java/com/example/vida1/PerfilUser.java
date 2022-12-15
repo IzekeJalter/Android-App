@@ -113,7 +113,7 @@ public class PerfilUser extends AppCompatActivity {
 
 
     private void CerrarSesion() {
-        String Url = ip_final + "/api/logout";
+        String Url = ip_final + "/api/salirsesionL";
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, Url, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {

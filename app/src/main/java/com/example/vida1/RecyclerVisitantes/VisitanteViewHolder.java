@@ -9,12 +9,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.vida1.R;
 
 public class VisitanteViewHolder extends RecyclerView.ViewHolder {
-    TextView txtNonmbreParqueLista, txt2;
+    TextView txtNombreVisitanteLista, txt2;
 
     public VisitanteViewHolder(@NonNull View v) {
         super(v);
 
-        txtNonmbreParqueLista = v.findViewById(R.id.txtNonmbreParqueLista);
-        txt2 = v.findViewById(R.id.txt2);//id
+        txtNombreVisitanteLista = v.findViewById(R.id.txtNombreVisitanteLista);
+        txt2 = v.findViewById(R.id.txt2);
     }
 }

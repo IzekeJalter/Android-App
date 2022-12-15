@@ -37,13 +37,13 @@ public class VisitanteAdapter extends RecyclerView.Adapter<VisitanteViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull VisitanteViewHolder holder, int position) {
         Visitante visitante =visitanteList.get(position);
-        holder.txtNonmbreParqueLista.setText(visitante.getNombre());
+        holder.txtNombreVisitanteLista.setText(visitante.getNombre());
         holder.txt2.setText(visitante.getId());
 
-        holder.txtNonmbreParqueLista.setOnClickListener(new View.OnClickListener() {
+        holder.txtNombreVisitanteLista.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ctx,InformacionVisitante.class);
+                Intent intent = new Intent(ctx, InformacionVisitante.class);
                 intent.putExtra("id", visitante.getId());
                 intent.putExtra("email",visitante.getEmail());
                 intent.putExtra("nombre",visitante.getNombre());

@@ -40,11 +40,13 @@ public class MainActivity extends AppCompatActivity {
     public EditText Correo, Contraseña;
     private RequestQueue requestQueue;
     id il;
+    Integer i;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        i = 0;
         requestQueue = Singleton.getInstance(MainActivity.this).getRequestQueue();
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
@@ -76,8 +78,6 @@ public class MainActivity extends AppCompatActivity {
         } else {
             if (Contraseña.getText().toString().isEmpty()) {
                 Toast.makeText(this, "Contraseña necesaria", Toast.LENGTH_SHORT).show();
-            } else {
-                startActivity(new Intent(getApplicationContext(), PaginaPrincipal.class));
             }
         }
     }
@@ -116,19 +116,21 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(JSONObject response) {
                 try {
-
-                    Integer i = Integer.parseInt(response.get("id").toString());
+                    i = Integer.parseInt(response.get("id").toString());
                     String token = response.get("token").toString();
                     tokens = token;
 
-                    Toast.makeText(MainActivity.this, response.toString(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(MainActivity.this, response.toString(), Toast.LENGTH_SHORT).show();
 
                     elnumero = i;
-                    if(elnumero >= 1){
+                    if(elnumero != 0){
+                        Toast.makeText(MainActivity.this, "Sesion Iniciada", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(getApplicationContext(), PaginaPrincipal.class));
+                    }else{
+                        Toast.makeText(MainActivity.this, "La informacion ingresada no es valida", Toast.LENGTH_SHORT).show();
                     }
 
-                    startActivity(new Intent(getApplicationContext(), PaginaPrincipal.class));
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -138,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(MainActivity.this, "Hubo un error al inciar sesion" + error, Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "La informacion ingresada no es valida", Toast.LENGTH_SHORT).show();
             }
         });
         requestQueue.add(request);
