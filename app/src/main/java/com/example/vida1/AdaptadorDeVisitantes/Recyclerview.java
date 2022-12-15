@@ -31,7 +31,7 @@ public class Recyclerview extends RecyclerView.Adapter<Recyclerview.ViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull Recyclerview.ViewHolder holder, int position) {
-holder.setData(datasss.get(position));
+    holder.setData(datasss.get(position));
 
     }
 

@@ -40,7 +40,9 @@ public class InformacionVisitante extends AppCompatActivity {
     public void solicitarInfo(){
         String valor=String.valueOf(elnumero);
 
+
         String URL = ip_final + "/api/visitante/"+valor;
+
 
         id_visi = findViewById(R.id.TextVerIDVisitante);
         email_visi = findViewById(R.id.TextVerCorreoVisitante);

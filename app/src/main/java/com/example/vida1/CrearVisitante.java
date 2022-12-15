@@ -86,7 +86,9 @@ public class CrearVisitante extends AppCompatActivity {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+
                 String url = ip_final + "/api/addVisitante/"+tarjeta;
+
 
                 JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, body, new Response.Listener<JSONObject>() {
                     @Override

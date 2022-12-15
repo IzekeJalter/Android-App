@@ -20,7 +20,9 @@ public class ListaVisitas extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_visitas);
 
+
         String url= ip_final + "/api/traevisitante/"+elnumero;
+
 
         JsonObjectRequest jsonObjectRequest= new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
             @Override
