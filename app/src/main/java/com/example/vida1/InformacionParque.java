@@ -24,6 +24,7 @@ public class InformacionParque extends AppCompatActivity {
         setContentView(R.layout.activity_informacion_parque);
         getSupportActionBar().hide();
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+
         txtnombre = findViewById(R.id.TextVerNombreParque);
         txtlargo = findViewById(R.id.TextVerLargoTerreno);
         txtancho = findViewById(R.id.TextVerAnchoTerreno);
