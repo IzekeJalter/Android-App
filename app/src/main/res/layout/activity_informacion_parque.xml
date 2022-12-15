@@ -37,42 +37,43 @@
             android:id="@+id/imageView3"
             android:layout_width="180dp"
             android:layout_height="120dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="60dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/iconoparque" />
 
+
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="28dp"
             android:text="Informacion del Parque "
             android:textColor="@color/white"
             android:textSize="23dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.567"
+            app:layout_constraintHorizontal_bias="0.637"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
 
         <LinearLayout
             android:id="@+id/DatosParque"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="145dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="170dp"
             android:orientation="vertical"
             android:textAlignment="center"
+            android:layout_marginBottom="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/margen">
 
             <LinearLayout
             android:id="@+id/linearLayout3"
-            android:layout_width="335dp"
-            android:layout_height="479dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
             android:layout_marginBottom="20dp"
@@ -132,7 +133,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="10dp"
-                    android:hint="Medida de largo del terreno: "
+                    android:hint="Medida de largo del terreno por mts: "
                     android:textAlignment="center"
                     android:textColorHint="@color/white"
                     android:textSize="15dp"
@@ -145,7 +146,7 @@
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="10dp"
-                    android:hint="Medida de Ancho del terreno"
+                    android:hint="Medida de Ancho del terreno por mts:"
                     android:textAlignment="center"
                     android:textColorHint="#EFF6F5"
                     android:textSize="15dp"
@@ -181,10 +182,11 @@
 
                 <TextView
                     android:id="@+id/TextVerAnchoTerreno"
-                    android:layout_width="140dp"
+                    android:layout_width="match_parent"
                     android:layout_height="45dp"
                     android:layout_marginTop="7dp"
                     android:layout_marginStart="15dp"
+                    android:layout_marginEnd="10dp"
                     android:background="@color/purple_200"
                     android:singleLine="true"
                     android:textAlignment="center"
@@ -257,10 +259,11 @@
 
                     <TextView
                         android:id="@+id/TextVerCantidadSalidas"
-                        android:layout_width="140dp"
+                        android:layout_width="match_parent"
                         android:layout_height="45dp"
                         android:layout_marginStart="15dp"
                         android:singleLine="true"
+                        android:layout_marginEnd="10dp"
                         android:background="@color/purple_200"
                         android:textAlignment="center"
                         android:textColor="@color/black"
@@ -272,8 +275,9 @@
             <LinearLayout
                 android:id="@+id/parque6"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="vertical"
+                android:layout_marginBottom="5dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent">
@@ -327,6 +331,7 @@
                     android:layout_marginStart="60dp"
                     android:layout_marginTop="0dp"
                     android:layout_marginEnd="40dp"
+                    android:layout_marginBottom="5dp"
                     android:backgroundTint="#139CDC"
                     android:text="Ver Lista visitantes."
                     android:textSize="15dp"
@@ -348,40 +353,7 @@
 
         </LinearLayout>
 
-        <Button
-            android:id="@+id/btnpaginaEditarParque"
-            android:layout_width="150dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="-4dp"
-            android:layout_marginEnd="40dp"
-            android:backgroundTint="#04FAE5"
-            android:text="Editar Parque."
-            android:textColor="#03167E"
-            android:textSize="15dp"
-            app:cornerRadius="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/DatosParque" />
 
-
-        <Button
-            android:id="@+id/btnEliminarParque"
-            android:layout_width="146dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="-4dp"
-            android:layout_marginEnd="4dp"
-            android:backgroundTint="#04FAE5"
-            android:text="Eliminar Parque."
-            android:textColor="#03167E"
-            android:textSize="15dp"
-            app:cornerRadius="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.826"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/DatosParque" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

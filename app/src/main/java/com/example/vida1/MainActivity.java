@@ -2,6 +2,7 @@ package com.example.vida1;
 
 import static com.example.vida1.Claseid.id.elnumero;
 import static com.example.vida1.Claseid.id.ip_final;
+import static com.example.vida1.Claseid.id.tokens;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -71,10 +72,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void revisarcampos() {
         if (Correo.getText().toString().isEmpty()) {
-            Toast.makeText(this, "Correo Nesesario", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Correo necesario", Toast.LENGTH_SHORT).show();
         } else {
             if (Contraseña.getText().toString().isEmpty()) {
-                Toast.makeText(this, "Contraseña Necesaria", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Contraseña necesaria", Toast.LENGTH_SHORT).show();
             } else {
                 startActivity(new Intent(getApplicationContext(), PaginaPrincipal.class));
             }
@@ -118,11 +119,14 @@ public class MainActivity extends AppCompatActivity {
 
                     Integer i = Integer.parseInt(response.get("id").toString());
                     String token = response.get("token").toString();
+                    tokens = token;
 
                     Toast.makeText(MainActivity.this, response.toString(), Toast.LENGTH_SHORT).show();
 
                     elnumero = i;
-
+                    if(elnumero >= 1){
+                        startActivity(new Intent(getApplicationContext(), PaginaPrincipal.class));
+                    }
 
                     startActivity(new Intent(getApplicationContext(), PaginaPrincipal.class));
                 } catch (Exception e) {

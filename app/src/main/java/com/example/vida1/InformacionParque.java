@@ -31,6 +31,9 @@ public class InformacionParque extends AppCompatActivity {
         txtsalidas = findViewById(R.id.TextVerCantidadSalidas);
         txtreglas = findViewById(R.id.TextVerReglasParque);
         findViewById(R.id.btnregresar).setOnClickListener(this::RegresarPagina);
+        findViewById(R.id.btnpaginaListaSensores).setOnClickListener(this::ListaSensores);
+        findViewById(R.id.btnPaginaListaVisitantes).setOnClickListener(this::vistaVisitantes);
+
 
         Intent intent = getIntent();
         id = intent.getStringExtra("id");
@@ -41,18 +44,22 @@ public class InformacionParque extends AppCompatActivity {
         cantidad_entradas = intent.getStringExtra("cantidad_entradas");
         cantidad_salidas = intent.getStringExtra("cantidad_salidas");
 
-
-        parque elemts = (parque) getIntent().getSerializableExtra("parque");
-
-
         txtnombre.setText(nombre);
         txtreglas.setText(reglas);
         txtlargo.setText(medida_largoTerreno);
         txtancho.setText(medida_anchoTerreno);
         txtentradas.setText(cantidad_entradas);
         txtsalidas.setText(cantidad_salidas);
+    }
 
+    private void vistaVisitantes(View view) {
+        Intent intent = new Intent(getApplicationContext(),ListaVisitas.class);
+        startActivity(intent);
+    }
 
+    private void ListaSensores(View view) {
+        Intent intent= new Intent(getApplicationContext(),InformacionSensores.class);
+        startActivity(intent);
     }
 
     private void RegresarPagina(View view) {
