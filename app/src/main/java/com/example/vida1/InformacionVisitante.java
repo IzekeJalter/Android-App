@@ -39,7 +39,7 @@ public class InformacionVisitante extends AppCompatActivity {
     public void solicitarInfo(){
         String valor=String.valueOf(elnumero);
 
-        String URL = "http://25.62.178.77:8000/api/visitante/"+valor;
+        String URL = "http://18.219.177.143/api/visitante/"+valor;
 
         id_visi = findViewById(R.id.TextVerIDVisitante);
         email_visi = findViewById(R.id.TextVerCorreoVisitante);

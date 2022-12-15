@@ -53,7 +53,7 @@ public class PerfilUser extends AppCompatActivity {
         String ntarjeta = String.valueOf(n_tarjeta);
 
 
-        String url = "http://3.133.89.232/api/user/" + valor;
+        String url = "http://18.219.177.143/api/user/" + valor;
 
         username = findViewById(R.id.TextVerApodo);
         email = findViewById(R.id.TextVerCorreo);
