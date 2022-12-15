@@ -1,6 +1,7 @@
 package com.example.vida1;
 
 import static com.example.vida1.Claseid.id.elnumero;
+import static com.example.vida1.Claseid.id.ip_final;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -39,7 +40,7 @@ public class InformacionVisitante extends AppCompatActivity {
     public void solicitarInfo(){
         String valor=String.valueOf(elnumero);
 
-        String URL = "http://25.62.178.77:8000/api/visitante/"+valor;
+        String URL = ip_final + "/api/visitante/"+valor;
 
         id_visi = findViewById(R.id.TextVerIDVisitante);
         email_visi = findViewById(R.id.TextVerCorreoVisitante);

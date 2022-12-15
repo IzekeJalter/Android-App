@@ -1,5 +1,7 @@
 package com.example.vida1;
 
+import static com.example.vida1.Claseid.id.ip_final;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -42,12 +44,14 @@ public class InformacionParque extends AppCompatActivity {
 
         parque elemts = (parque) getIntent().getSerializableExtra("parque");
 
+
         txtnombre.setText(nombre);
         txtreglas.setText(reglas);
         txtlargo.setText(medida_largoTerreno);
         txtancho.setText(medida_anchoTerreno);
         txtentradas.setText(cantidad_entradas);
         txtsalidas.setText(cantidad_salidas);
+
 
     }
 
