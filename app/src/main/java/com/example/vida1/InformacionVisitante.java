@@ -61,6 +61,7 @@ public class InformacionVisitante extends AppCompatActivity {
         txtapellidos.setText(apellidos);
         txtemail.setText(email);
         txtedad.setText(edad);
+        txttelefono.setText(telefono);
         txttarjeta.setText(numero_tarjeta);
 
     }

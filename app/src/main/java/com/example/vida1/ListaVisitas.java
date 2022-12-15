@@ -11,7 +11,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -45,6 +44,9 @@ public class ListaVisitas extends AppCompatActivity {
         String url = ip_final + "/api/visitantes/3";
         final RecyclerView rvVisitante = findViewById(R.id.RclistaVisitas);
 
+        findViewById(R.id.btnregresar).setOnClickListener(this::Regresarpagina);
+        findViewById(R.id.btnpaginaCrearVisitante).setOnClickListener(this::paginaCrearvisitante);
+
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET,
                 url, null, new Response.Listener<JSONObject>() {
             @Override
@@ -72,5 +74,15 @@ public class ListaVisitas extends AppCompatActivity {
         });
 
         Singleton.getInstance(this).addToRequestQueue(jsonObjectRequest);
+    }
+
+    private void paginaCrearvisitante(View view) {
+        Intent intent = new Intent(getApplicationContext(),CrearVisitante.class);
+        startActivity(intent);
+    }
+
+    private void Regresarpagina(View view) {
+        Intent intent = new Intent(getApplicationContext(),InformacionParque.class);
+        startActivity(intent);
     }
 }
