@@ -43,6 +43,12 @@ public class ParqueAdaptador extends RecyclerView.Adapter<ParqueViewHolder> {
             public void onClick(View view) {
                 Intent intent = new Intent(ctx, InformacionParque.class);
                 intent.putExtra("id", parque.getId());
+                intent.putExtra("nombre",parque.getNombre());
+                intent.putExtra("reglas",parque.getReglas());
+                intent.putExtra("medida_largoTerreno",parque.getMedida_largoTerreno());
+                intent.putExtra("medida_anchoTerreno",parque.getMedida_anchoTerreno());
+                intent.putExtra("cantidad_entradas",parque.getCantidad_entradas());
+                intent.putExtra("cantidad_salidas",parque.getCantidad_salidas());
                 ctx.startActivity(intent);
             }
         });
