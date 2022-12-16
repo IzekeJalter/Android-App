@@ -47,6 +47,7 @@
         android:layout_marginBottom="28dp"
         android:radius="10dp"
         android:text="Click para ver informacion."
+        android:lines="2"
         android:textColor="@color/black"
         android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@id/imageView"

@@ -345,37 +345,37 @@
         </LinearLayout>
 
 
-        <Button
-            android:id="@+id/btnpaginaEditarVisitante"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="40dp"
-            android:backgroundTint="#16EF06"
-            android:textColor="#074009"
-            android:text="Editar Visitante."
-            android:textSize="23dp"
-            app:cornerRadius="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/DatosVisita" />
+<!--        <Button-->
+<!--            android:id="@+id/btnpaginaEditarVisitante"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="40dp"-->
+<!--            android:layout_marginTop="8dp"-->
+<!--            android:layout_marginEnd="40dp"-->
+<!--            android:backgroundTint="#16EF06"-->
+<!--            android:textColor="#074009"-->
+<!--            android:text="Editar Visitante."-->
+<!--            android:textSize="23dp"-->
+<!--            app:cornerRadius="20dp"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/DatosVisita" />-->
 
-        <Button
-            android:id="@+id/btnEliminarVisitante"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="72dp"
-            android:layout_marginEnd="40dp"
-            android:backgroundTint="#E91E63"
-            android:text="Eliminar Visitante."
-            android:textColor="#011202"
-            android:textSize="23dp"
-            app:cornerRadius="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/DatosVisita" />
+<!--        <Button-->
+<!--            android:id="@+id/btnEliminarVisitante"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="40dp"-->
+<!--            android:layout_marginTop="72dp"-->
+<!--            android:layout_marginEnd="40dp"-->
+<!--            android:backgroundTint="#E91E63"-->
+<!--            android:text="Eliminar Visitante."-->
+<!--            android:textColor="#011202"-->
+<!--            android:textSize="23dp"-->
+<!--            app:cornerRadius="20dp"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/DatosVisita" />-->
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

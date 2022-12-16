@@ -13,6 +13,7 @@ import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -39,6 +40,7 @@ import Singleton.Singleton;
 public class InformacionSensores extends AppCompatActivity {
     String key;
     Button rueda;
+    ImageButton bntregresa;
     private RequestQueue requestQueue ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +56,14 @@ public class InformacionSensores extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), SensorFortune.class);
                 startActivity(intent);
+            }
+        });
+        bntregresa = (ImageButton) findViewById(R.id.btnregresarLS);
+        bntregresa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent1 = new Intent(getApplicationContext(), PantallaParques.class);
+                startActivity(intent1);
             }
         });
 

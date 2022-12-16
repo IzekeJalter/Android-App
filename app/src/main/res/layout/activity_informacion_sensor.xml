@@ -93,13 +93,14 @@
 
                 <TextView
                     android:id="@+id/txtVerNombreSensor"
-                    android:layout_width="250dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:layout_marginStart="10dp"
                     android:hint="Nombre:"
+                    android:gravity="center"
                     android:textColorHint="#FFFFFF"
-                    android:textSize="15dp" />
+                    android:textSize="18dp" />
 
                 <TextView
                     android:id="@+id/TextVerNombreSensor"
@@ -128,11 +129,12 @@
 
                 <TextView
                     android:id="@+id/txtInfo"
+                    android:gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="5dp"
-                    android:hint=" Informacion del sensor:"
+                    android:hint="Ultima data proveida por sensor:"
                     android:textColorHint="#FFFFFF"
                     android:textSize="18dp" />
 
