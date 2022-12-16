@@ -113,7 +113,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="10dp"
-                android:hint="Username"
+                android:hint=""
                 android:singleLine="true"
                 android:textColor="@color/white"
                 android:textColorHint="@color/white"
@@ -147,7 +147,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="10dp"
-                android:hint="Email"
+                android:hint=""
                 android:inputType="textEmailAddress"
                 android:singleLine="true"
                 android:textColor="@color/white"
@@ -182,7 +182,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="10dp"
-                android:hint="Nombre"
+                android:hint=""
                 android:singleLine="true"
                 android:textColor="@color/white"
                 android:textColorHint="@color/white"
@@ -216,7 +216,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="10dp"
-                android:hint="Apellido"
+                android:hint=""
                 android:singleLine="true"
                 android:textColor="@color/white"
                 android:textColorHint="@color/white"
@@ -250,7 +250,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="10dp"
-                android:hint="Edad"
+                android:hint=""
                 android:singleLine="true"
                 android:textColor="@color/white"
                 android:textColorHint="@color/white"
@@ -281,7 +281,7 @@
                 android:id="@+id/TextVerTel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Tel."
+                android:hint=""
                 android:inputType="phone"
                 android:singleLine="true"
                 android:layout_marginStart="10dp"
@@ -319,7 +319,7 @@
                 android:id="@+id/TextVerNumerotarjetaDueño"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Num.Tarjeta"
+                android:hint=""
                 android:singleLine="true"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
@@ -337,29 +337,29 @@
         </LinearLayout>
 
 
-        <Button
-            android:id="@+id/btnPaginaEditarCuenta"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="40dp"
-            android:backgroundTint="#16EF06"
-            android:textColor="#064A09"
-            android:text="Editar Cuenta."
-            android:textSize="23dp"
-            app:cornerRadius="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.518"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/DatosUser" />
+<!--        <Button-->
+<!--            android:id="@+id/btnPaginaEditarCuenta"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="40dp"-->
+<!--            android:layout_marginTop="8dp"-->
+<!--            android:layout_marginEnd="40dp"-->
+<!--            android:backgroundTint="#16EF06"-->
+<!--            android:textColor="#064A09"-->
+<!--            android:text="Editar Cuenta."-->
+<!--            android:textSize="23dp"-->
+<!--            app:cornerRadius="20dp"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.518"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/DatosUser" />-->
 
         <Button
             android:id="@+id/btnCerrarSeccion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="46dp"
             android:layout_marginEnd="40dp"
             android:backgroundTint="#E91E63"
             android:text="Cerrar Sesion."
@@ -368,7 +368,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.518"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnPaginaEditarCuenta" />
+            app:layout_constraintTop_toBottomOf="@+id/DatosUser" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

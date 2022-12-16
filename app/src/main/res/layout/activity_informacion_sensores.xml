@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
-            android:id="@+id/btnregresar"
+            android:id="@+id/btnregresarLS"
             android:layout_width="59dp"
             android:layout_height="55dp"
             android:layout_marginTop="15dp"

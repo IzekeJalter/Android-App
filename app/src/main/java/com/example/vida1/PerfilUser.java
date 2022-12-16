@@ -50,7 +50,7 @@ public class PerfilUser extends AppCompatActivity {
         setContentView(R.layout.activity_perfil_user);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         getSupportActionBar().hide();
-        findViewById(R.id.btnPaginaEditarCuenta).setOnClickListener(this::iraPaginaEditarPErfil);
+        //findViewById(R.id.btnPaginaEditarCuenta).setOnClickListener(this::iraPaginaEditarPErfil);
         findViewById(R.id.btnregresar).setOnClickListener(this::regresarPagina);
         findViewById(R.id.btnCerrarSeccion).setOnClickListener(new View.OnClickListener() {
             @Override

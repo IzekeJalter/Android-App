@@ -298,10 +298,12 @@
 
                 android:background="@drawable/edittextvista"
                 android:singleLine="true"
-                android:textAlignment="center"
+                android:gravity="top|start"
                 android:textColor="@color/white"
                 android:textColorHint="@color/white"
-                android:textSize="15dp" />
+                android:textSize="15dp"
+                android:lines="10"
+                />
 
 
         </LinearLayout>

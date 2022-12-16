@@ -76,7 +76,7 @@ public class ListaVisitas extends AppCompatActivity {
             @Override
             public void onResponse(JSONObject response) {
                 try {
-                    Toast.makeText(ListaVisitas.this, response.toString(), Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(ListaVisitas.this, response.toString(), Toast.LENGTH_SHORT).show();
                     int status = 200;
                     int respuesta = Integer.parseInt(response.getString("status"));
                     if(status == respuesta){

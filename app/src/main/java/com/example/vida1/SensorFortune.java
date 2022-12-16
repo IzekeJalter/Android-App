@@ -4,6 +4,7 @@ import static com.example.vida1.Claseid.id.IOK;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.util.Log;
@@ -38,6 +39,7 @@ public class SensorFortune extends AppCompatActivity implements View.OnClickList
         queue = Singleton.getInstance(SensorFortune.this).getRequestQueue();
          findViewById(R.id.buttonR).setOnClickListener(this);
         findViewById(R.id.button2R).setOnClickListener(this);
+        findViewById(R.id.btnregresarRF).setOnClickListener(this);
     }
 
 
@@ -54,21 +56,25 @@ public class SensorFortune extends AppCompatActivity implements View.OnClickList
             case R.id.button2R:
                 v = "0";
                 break;
+            case R.id.btnregresarRF:
+                regresar();
+                break;
         }
+
         try {
             led.put("value", v);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        Toast.makeText(this, "Hola", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Hola", Toast.LENGTH_SHORT).show();
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST,
                 url,
                 led, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_SHORT).show();
             }
         }, new Response.ErrorListener() {
             @Override
@@ -82,10 +88,15 @@ public class SensorFortune extends AppCompatActivity implements View.OnClickList
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 HashMap<String, String> headers = new HashMap<String, String>();
-                headers.put("X-AIO-Key", "aio_FUJX77yb2kHgVIoUTVOrZpQoj40L");
+                headers.put("X-AIO-Key", "" + IOK);
                 return headers;
             }
         };
         queue.add(jsonObjectRequest);
+    }
+
+    private void regresar() {
+        Intent intent = new Intent(getApplicationContext(), InformacionSensores.class);
+        startActivity(intent);
     }
 }
