@@ -8,7 +8,7 @@ public class id {
     public static int n_tarjeta;
     public int ids;
     public static String ip_final = "http://18.218.191.227";
-    public static String IOK = "aio_rGEy88mCdYkqwaz9uyXmqL0xL56u";
+    public static String IOK = "";
 
 
 }
